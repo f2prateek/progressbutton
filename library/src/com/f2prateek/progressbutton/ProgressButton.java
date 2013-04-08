@@ -130,6 +130,10 @@ public class ProgressButton extends CompoundButton {
      * @see #setMax(int)
      */
     public void setProgress(int progress) {
+        if (progress > mMax || progress < 0) {
+            throw new IllegalArgumentException(
+                    String.format("Progress (%d) must be between %d and %d", progress, 0, mMax));
+        }
         mProgress = progress;
         invalidate();
     }
