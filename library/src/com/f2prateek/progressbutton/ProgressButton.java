@@ -58,48 +58,42 @@ public class ProgressButton extends CompoundButton {
     }
 
     private void init(Context context, AttributeSet attrs, int defStyle) {
-        mMax = 100;
-        mProgress = 0;
-
+        // Attribute initialization
+        final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ProgressButton,
+                defStyle, 0);
         final Resources res = getResources();
-        mInnerSize = res.getDimensionPixelSize(R.dimen.progress_inner_size);
+
+        mProgress = a.getInteger(R.styleable.ProgressButton_progress, 0);
+        mMax = a.getInteger(R.styleable.ProgressButton_max, 100);
+
         int circleColor = res.getColor(R.color.progress_default_circle_color);
+        circleColor = a.getColor(R.styleable.ProgressButton_circleColor, circleColor);
         int progressColor = res.getColor(R.color.progress_default_progress_color);
+        progressColor = a.getColor(R.styleable.ProgressButton_progressColor, progressColor);
 
-        if (attrs != null) {
-            // Attribute initialization
-            final TypedArray a = context
-                    .obtainStyledAttributes(attrs, R.styleable.ProgressButton,
-                            defStyle, 0);
+        int pinnedDrawable = a.getResourceId(R.styleable.ProgressButton_pinnedDrawable,
+                R.drawable.pin_progress_pinned);
+        mPinnedDrawable = res.getDrawable(pinnedDrawable);
+        mPinnedDrawable.setCallback(this);
 
-            mMax = a.getInteger(R.styleable.ProgressButton_max, mMax);
-            mProgress = a.getInteger(R.styleable.ProgressButton_progress, mProgress);
+        int unpinnedDrawable = a.getResourceId(R.styleable.ProgressButton_unpinnedDrawable,
+                R.drawable.pin_progress_unpinned);
+        mUnpinnedDrawable = res.getDrawable(unpinnedDrawable);
+        mUnpinnedDrawable.setCallback(this);
 
-            circleColor = a.getColor(R.styleable.ProgressButton_circleColor, circleColor);
-            progressColor = a.getColor(R.styleable.ProgressButton_progressColor, progressColor);
+        int shadowDrawable = a.getResourceId(R.styleable.ProgressButton_shadowDrawable,
+                R.drawable.pin_progress_shadow);
+        mShadowDrawable = res.getDrawable(shadowDrawable);
+        mShadowDrawable.setCallback(this);
 
-            // Other initialization
-            int pinnedDrawable = a.getResourceId(R.styleable.ProgressButton_pinnedDrawable,
-                    R.drawable.pin_progress_pinned);
-            mPinnedDrawable = res.getDrawable(pinnedDrawable);
-            mPinnedDrawable.setCallback(this);
+        mInnerSize = a.getDimensionPixelSize(R.styleable.ProgressButton_innerSize, mInnerSize);
 
-            int unpinnedDrawable = a.getResourceId(R.styleable.ProgressButton_unpinnedDrawable,
-                    R.drawable.pin_progress_unpinned);
-            mUnpinnedDrawable = res.getDrawable(unpinnedDrawable);
-            mUnpinnedDrawable.setCallback(this);
+        mInnerSize = res.getDimensionPixelSize(R.dimen.progress_inner_size);
+        setChecked(a.getBoolean(R.styleable.ProgressButton_pinned, false));
 
+        a.recycle();
 
-            int shadowDrawable = a.getResourceId(R.styleable.ProgressButton_shadowDrawable,
-                    R.drawable.pin_progress_shadow);
-            mShadowDrawable = res.getDrawable(shadowDrawable);
-            mShadowDrawable.setCallback(this);
-
-            mDrawableSize = mShadowDrawable.getIntrinsicWidth();
-            mInnerSize = a.getDimensionPixelSize(R.styleable.ProgressButton_innerSize, mInnerSize);
-
-            a.recycle();
-        }
+        mDrawableSize = mShadowDrawable.getIntrinsicWidth();
 
         mCirclePaint = new Paint();
         mCirclePaint.setColor(circleColor);

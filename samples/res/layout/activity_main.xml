@@ -51,6 +51,7 @@
                         android:id="@+id/pin_progress_2"
                         style="@style/PinProgressButton"
                         ProgressButton:progressColor="@color/holo_green_light"
+                        ProgressButton:max="50"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom|right"/>
@@ -70,6 +71,7 @@
                 <com.f2prateek.progressbutton.ProgressButton
                         android:id="@+id/pin_progress_3"
                         style="@style/PinProgressButton"
+                        ProgressButton:pinned="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom|right"/>

@@ -17,7 +17,6 @@
 
 <resources>
     <declare-styleable name="ProgressButton">
-        <attr name="pinned" format="boolean"/>
         <attr name="progress" format="integer"/>
         <attr name="max" format="integer"/>
         <attr name="circleColor" format="color"/>
@@ -25,6 +24,7 @@
         <attr name="pinnedDrawable" format="reference"/>
         <attr name="unpinnedDrawable" format="reference"/>
         <attr name="shadowDrawable" format="reference"/>
-        <attr name="innerSize" format="integer"/>
+        <attr name="innerSize" format="dimension"/>
+        <attr name="pinned" format="boolean"/>
     </declare-styleable>
 </resources>
