@@ -125,7 +125,7 @@ public class ProgressButton extends CompoundButton {
     }
 
     /**
-     * Sets the current progress (between 0 and max).
+     * Sets the current progress (must be between 0 and max).
      *
      * @see #setMax(int)
      */
@@ -207,7 +207,7 @@ public class ProgressButton extends CompoundButton {
     }
 
     /**
-     * A {@link android.os.Parcelable} representing the {@link com.f2prateek.progressbutton.ProgressButton}'s state.
+     * A {@link android.os.Parcelable} representing the {@link ProgressButton}'s state.
      */
     public static class SavedState extends BaseSavedState {
         public static final Creator<SavedState> CREATOR = new Creator<SavedState>() {
