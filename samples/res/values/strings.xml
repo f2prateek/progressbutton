@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Progress Bar Samples</string>
+
+    <string name="content_desc_pinned_downloaded">Pinned to device and downloaded</string>
+    <string name="content_desc_pinned_downloading">Pinned to device and downloading</string>
+    <string name="content_desc_pinned_not_downloaded">Pinned to device and waiting to download</string>
+
+    <string name="content_desc_unpinned_downloaded">Temporarily downloaded</string>
+    <string name="content_desc_unpinned_downloading">Temporarily downloading</string>
+    <string name="content_desc_unpinned_not_downloaded">Not downloaded</string>
+</resources>

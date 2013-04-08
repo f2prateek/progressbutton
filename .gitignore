@@ -1,0 +1,59 @@
+# built application files
+*.apk
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+#Android generated
+bin
+gen
+lint.xml
+
+#Eclipse
+.project
+.classpath
+.settings
+
+#IntelliJ IDEA
+.idea
+*.iml
+*.ipr
+*.iws
+gen-external-apklibs
+
+#Maven
+target
+release.properties
+pom.xml.*
+
+#Ant
+build.xml
+ant.properties
+local.properties
+proguard.cfg
+proguard-project.txt
+
+#OS X
+.DS_Store
+
+#Windows
+Thumbs.db
+ehthumbs.db
+
+#Other
+*/target
+tmp
+*~
+lib
+*/test-output
+temp-testng-customsuite.xml
+**pom.xml.releaseBackup
+project.properties
+classes
+*/seed.txt
+notes
+logs
