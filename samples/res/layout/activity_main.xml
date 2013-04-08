@@ -86,6 +86,13 @@
                     android:layout_height="wrap_content"/>
         </LinearLayout>
 
+        <LinearLayout android:orientation="horizontal"
+                      android:id="@+id/container"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:background="#fff"
+                      android:baselineAligned="false"/>
+
         <SeekBar android:id="@+id/progress_seek_bar"
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content"
