@@ -51,7 +51,7 @@
                         android:id="@+id/pin_progress_2"
                         style="@style/PinProgressButton"
                         ProgressButton:progressColor="@color/holo_green_light"
-                        ProgressButton:max="50"
+                        ProgressButton:max="150"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom|right"/>

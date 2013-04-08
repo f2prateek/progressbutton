@@ -43,13 +43,11 @@ public class ProgressButton extends CompoundButton {
     private int mInnerSize;
 
     public ProgressButton(Context context) {
-        super(context);
-        init(context, null, 0);
+        this(context, null);
     }
 
     public ProgressButton(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init(context, attrs, 0);
+        this(context, attrs, R.attr.progressButtonStyle);
     }
 
     public ProgressButton(Context context, AttributeSet attrs, int defStyle) {
@@ -238,6 +236,5 @@ public class ProgressButton extends CompoundButton {
             out.writeInt(mProgress);
             out.writeInt(mMax);
         }
-
     }
 }

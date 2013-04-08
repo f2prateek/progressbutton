@@ -16,6 +16,9 @@
   -->
 
 <resources>
+
+    <attr name="progressButtonStyle" format="reference"/>
+
     <declare-styleable name="ProgressButton">
         <attr name="progress" format="integer"/>
         <attr name="max" format="integer"/>
