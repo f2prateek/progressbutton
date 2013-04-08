@@ -11,21 +11,21 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final ProgressButton pinProgress1 = (ProgressButton) findViewById(
+        final ProgressButton progressButton1 = (ProgressButton) findViewById(
                 R.id.pin_progress_1);
-        final ProgressButton pinProgress2 = (ProgressButton) findViewById(
+        final ProgressButton progressButton2 = (ProgressButton) findViewById(
                 R.id.pin_progress_2);
-        final ProgressButton pinProgress3 = (ProgressButton) findViewById(
+        final ProgressButton progressButton3 = (ProgressButton) findViewById(
                 R.id.pin_progress_3);
-        final ProgressButton pinProgress4 = (ProgressButton) findViewById(
+        final ProgressButton progressButton4 = (ProgressButton) findViewById(
                 R.id.pin_progress_4);
-        final ProgressButton pinProgress5 = (ProgressButton) findViewById(
+        final ProgressButton progressButton5 = (ProgressButton) findViewById(
                 R.id.pin_progress_5);
-        final ProgressButton pinProgress6 = (ProgressButton) findViewById(
+        final ProgressButton progressButton6 = (ProgressButton) findViewById(
                 R.id.pin_progress_6);
-        final ProgressButton pinProgress7 = (ProgressButton) findViewById(
+        final ProgressButton progressButton7 = (ProgressButton) findViewById(
                 R.id.pin_progress_7);
-        final ProgressButton pinProgress8 = (ProgressButton) findViewById(
+        final ProgressButton progressButton8 = (ProgressButton) findViewById(
                 R.id.pin_progress_8);
 
         CompoundButton.OnCheckedChangeListener checkedChangeListener
@@ -36,36 +36,36 @@ public class MainActivity extends Activity {
             }
         };
 
-        pinProgress1.setOnCheckedChangeListener(checkedChangeListener);
-        pinProgress2.setOnCheckedChangeListener(checkedChangeListener);
-        pinProgress3.setOnCheckedChangeListener(checkedChangeListener);
-        pinProgress4.setOnCheckedChangeListener(checkedChangeListener);
-        pinProgress5.setOnCheckedChangeListener(checkedChangeListener);
-        pinProgress6.setOnCheckedChangeListener(checkedChangeListener);
-        pinProgress7.setOnCheckedChangeListener(checkedChangeListener);
-        pinProgress8.setOnCheckedChangeListener(checkedChangeListener);
+        progressButton1.setOnCheckedChangeListener(checkedChangeListener);
+        progressButton2.setOnCheckedChangeListener(checkedChangeListener);
+        progressButton3.setOnCheckedChangeListener(checkedChangeListener);
+        progressButton4.setOnCheckedChangeListener(checkedChangeListener);
+        progressButton5.setOnCheckedChangeListener(checkedChangeListener);
+        progressButton6.setOnCheckedChangeListener(checkedChangeListener);
+        progressButton7.setOnCheckedChangeListener(checkedChangeListener);
+        progressButton8.setOnCheckedChangeListener(checkedChangeListener);
 
         SeekBar progressSeekBar = (SeekBar) findViewById(R.id.progress_seek_bar);
         progressSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                pinProgress1.setProgress(progress);
-                pinProgress2.setProgress(progress);
-                pinProgress3.setProgress(progress);
-                pinProgress4.setProgress(progress);
-                pinProgress5.setProgress(progress);
-                pinProgress6.setProgress(progress);
-                pinProgress7.setProgress(progress);
-                pinProgress8.setProgress(progress);
+                progressButton1.setProgress(progress);
+                progressButton2.setProgress(progress);
+                progressButton3.setProgress(progress);
+                progressButton4.setProgress(progress);
+                progressButton5.setProgress(progress);
+                progressButton6.setProgress(progress);
+                progressButton7.setProgress(progress);
+                progressButton8.setProgress(progress);
 
-                updatePinProgressContentDescription(pinProgress1);
-                updatePinProgressContentDescription(pinProgress2);
-                updatePinProgressContentDescription(pinProgress3);
-                updatePinProgressContentDescription(pinProgress4);
-                updatePinProgressContentDescription(pinProgress5);
-                updatePinProgressContentDescription(pinProgress6);
-                updatePinProgressContentDescription(pinProgress7);
-                updatePinProgressContentDescription(pinProgress8);
+                updatePinProgressContentDescription(progressButton1);
+                updatePinProgressContentDescription(progressButton2);
+                updatePinProgressContentDescription(progressButton3);
+                updatePinProgressContentDescription(progressButton4);
+                updatePinProgressContentDescription(progressButton5);
+                updatePinProgressContentDescription(progressButton6);
+                updatePinProgressContentDescription(progressButton7);
+                updatePinProgressContentDescription(progressButton8);
             }
 
             @Override
@@ -77,23 +77,23 @@ public class MainActivity extends Activity {
             }
         });
 
-        pinProgress1.setProgress(progressSeekBar.getProgress());
-        pinProgress2.setProgress(progressSeekBar.getProgress());
-        pinProgress3.setProgress(progressSeekBar.getProgress());
-        pinProgress4.setProgress(progressSeekBar.getProgress());
-        pinProgress5.setProgress(progressSeekBar.getProgress());
-        pinProgress6.setProgress(progressSeekBar.getProgress());
-        pinProgress7.setProgress(progressSeekBar.getProgress());
-        pinProgress8.setProgress(progressSeekBar.getProgress());
+        progressButton1.setProgress(progressSeekBar.getProgress());
+        progressButton2.setProgress(progressSeekBar.getProgress());
+        progressButton3.setProgress(progressSeekBar.getProgress());
+        progressButton4.setProgress(progressSeekBar.getProgress());
+        progressButton5.setProgress(progressSeekBar.getProgress());
+        progressButton6.setProgress(progressSeekBar.getProgress());
+        progressButton7.setProgress(progressSeekBar.getProgress());
+        progressButton8.setProgress(progressSeekBar.getProgress());
 
-        updatePinProgressContentDescription(pinProgress1);
-        updatePinProgressContentDescription(pinProgress2);
-        updatePinProgressContentDescription(pinProgress3);
-        updatePinProgressContentDescription(pinProgress4);
-        updatePinProgressContentDescription(pinProgress5);
-        updatePinProgressContentDescription(pinProgress6);
-        updatePinProgressContentDescription(pinProgress7);
-        updatePinProgressContentDescription(pinProgress8);
+        updatePinProgressContentDescription(progressButton1);
+        updatePinProgressContentDescription(progressButton2);
+        updatePinProgressContentDescription(progressButton3);
+        updatePinProgressContentDescription(progressButton4);
+        updatePinProgressContentDescription(progressButton5);
+        updatePinProgressContentDescription(progressButton6);
+        updatePinProgressContentDescription(progressButton7);
+        updatePinProgressContentDescription(progressButton8);
     }
 
     private void updatePinProgressContentDescription(ProgressButton button) {
