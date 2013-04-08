@@ -50,8 +50,7 @@
                 <com.f2prateek.progressbutton.ProgressButton
                         android:id="@+id/pin_progress_2"
                         style="@style/PinProgressButton"
-                        ProgressButton:circleColor="@color/holo_green_light"
-                        ProgressButton:max="50"
+                        ProgressButton:progressColor="@color/holo_green_light"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom|right"/>
