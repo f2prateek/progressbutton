@@ -22,9 +22,9 @@
         <attr name="max" format="integer"/>
         <attr name="circleColor" format="color"/>
         <attr name="progressColor" format="color"/>
-        <attr name="progressPinnedDrawable" format="reference"/>
-        <attr name="progressUnpinnedDrawable" format="reference"/>
-        <attr name="progressShadowDrawable" format="reference"/>
+        <attr name="pinnedDrawable" format="reference"/>
+        <attr name="unpinnedDrawable" format="reference"/>
+        <attr name="shadowDrawable" format="reference"/>
         <attr name="innerSize" format="integer"/>
     </declare-styleable>
 </resources>

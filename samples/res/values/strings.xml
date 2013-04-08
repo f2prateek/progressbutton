@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Progress Bar Samples</string>
+    <string name="app_name">Progress Button</string>
 
     <string name="content_desc_pinned_downloaded">Pinned to device and downloaded</string>
     <string name="content_desc_pinned_downloading">Pinned to device and downloading</string>

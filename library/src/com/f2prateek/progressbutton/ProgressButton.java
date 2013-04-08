@@ -79,18 +79,18 @@ public class ProgressButton extends CompoundButton {
             progressColor = a.getColor(R.styleable.ProgressButton_progressColor, progressColor);
 
             // Other initialization
-            int pinnedDrawable = a.getResourceId(R.styleable.ProgressButton_progressPinnedDrawable,
+            int pinnedDrawable = a.getResourceId(R.styleable.ProgressButton_pinnedDrawable,
                     R.drawable.pin_progress_pinned);
             mPinnedDrawable = res.getDrawable(pinnedDrawable);
             mPinnedDrawable.setCallback(this);
 
-            int unpinnedDrawable = a.getResourceId(R.styleable.ProgressButton_progressUnpinnedDrawable,
+            int unpinnedDrawable = a.getResourceId(R.styleable.ProgressButton_unpinnedDrawable,
                     R.drawable.pin_progress_unpinned);
             mUnpinnedDrawable = res.getDrawable(unpinnedDrawable);
             mUnpinnedDrawable.setCallback(this);
 
 
-            int shadowDrawable = a.getResourceId(R.styleable.ProgressButton_progressShadowDrawable,
+            int shadowDrawable = a.getResourceId(R.styleable.ProgressButton_shadowDrawable,
                     R.drawable.pin_progress_shadow);
             mShadowDrawable = res.getDrawable(shadowDrawable);
             mShadowDrawable.setCallback(this);
