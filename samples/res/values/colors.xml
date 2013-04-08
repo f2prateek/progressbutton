@@ -18,13 +18,11 @@
 
 <resources>
 
-    <!-- A light Holo shade of green -->
+    <color name="black">#fff</color>
+    <color name="white">#000</color>
     <color name="holo_green_light">#ff99cc00</color>
-    <!-- A light Holo shade of red -->
     <color name="holo_red_light">#ffff4444</color>
-    <!-- A dark Holo shade of green -->
     <color name="holo_green_dark">#ff669900</color>
-    <!-- A dark Holo shade of purple -->
     <color name="holo_purple">#ffaa66cc</color>
 
 </resources>

@@ -27,7 +27,7 @@
         <LinearLayout android:orientation="horizontal"
                       android:layout_width="match_parent"
                       android:layout_height="wrap_content"
-                      android:background="#fff"
+                      android:background="@color/white"
                       android:baselineAligned="false">
             <com.f2prateek.progressbutton.ProgressButton
                     android:id="@+id/pin_progress_1"
@@ -58,7 +58,7 @@
         <LinearLayout android:orientation="horizontal"
                       android:layout_width="match_parent"
                       android:layout_height="wrap_content"
-                      android:background="#000"
+                      android:background="@color/black"
                       android:baselineAligned="false">
             <com.f2prateek.progressbutton.ProgressButton
                     android:id="@+id/pin_progress_5"
@@ -90,7 +90,7 @@
                       android:id="@+id/container"
                       android:layout_width="match_parent"
                       android:layout_height="wrap_content"
-                      android:background="#fff"
+                      android:background="@color/holo_red_light"
                       android:baselineAligned="false"/>
 
         <SeekBar android:id="@+id/progress_seek_bar"
