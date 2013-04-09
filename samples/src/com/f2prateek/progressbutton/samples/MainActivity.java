@@ -1,7 +1,6 @@
 package com.f2prateek.progressbutton.samples;
 
 import android.app.Activity;
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
@@ -10,17 +9,12 @@ import com.f2prateek.progressbutton.ProgressButton;
 
 /**
  * 1 : Default
- * 2 : Colored
- * 3 : Default clickable
- * 4 : Colored clickable
- * 5 : Custom drawables
- * 6 : Pinned
- * 7 : Custom drawables clickable
- * 8 : Pinned clickable
- *
- * Row 1/2 : from xml
- * Row 3/4 : from code duplicating Row 1 and 2
- *
+ * 2 : Pinned
+ * 3 : Pinned Clickable
+ * 4 : Colored Clickable
+ * <p/>
+ * Row 1 : from xml
+ * Row 2 : from code (duplicating row 1)
  */
 public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
@@ -31,40 +25,44 @@ public class MainActivity extends Activity {
         final ProgressButton progressButton2 = (ProgressButton) findViewById(R.id.pin_progress_2);
         final ProgressButton progressButton3 = (ProgressButton) findViewById(R.id.pin_progress_3);
         final ProgressButton progressButton4 = (ProgressButton) findViewById(R.id.pin_progress_4);
-        final ProgressButton progressButton5 = (ProgressButton) findViewById(R.id.pin_progress_5);
-        final ProgressButton progressButton6 = (ProgressButton) findViewById(R.id.pin_progress_6);
-        final ProgressButton progressButton7 = (ProgressButton) findViewById(R.id.pin_progress_7);
-        final ProgressButton progressButton8 = (ProgressButton) findViewById(R.id.pin_progress_8);
 
-        final LinearLayout container_3 = (LinearLayout) findViewById(R.id.container_3);
-        final ProgressButton progressButton9 = addProgressButton(container_3);
-        final ProgressButton progressButton10 = addProgressButton(container_3);
-        progressButton10.setProgressColor(getResources().getColor(R.color.holo_green_light));
-        progressButton10.setCircleColor(getResources().getColor(R.color.holo_red_light));
-        final ProgressButton progressButton11 = addProgressButton(container_3);
-        progressButton11.setClickable(true);
-        progressButton11.setClickable(true);
-        final ProgressButton progressButton12 = addProgressButton(container_3);
-        progressButton12.setClickable(true);
-        progressButton12.setClickable(true);
-        progressButton12.setProgressColor(getResources().getColor(R.color.holo_green_light));
-        progressButton12.setCircleColor(getResources().getColor(R.color.holo_red_light));
+        final LinearLayout container = (LinearLayout) findViewById(R.id.container);
 
-        final LinearLayout container_4 = (LinearLayout) findViewById(R.id.container_4);
-        final ProgressButton progressButton13 = addProgressButton(container_4);
-        progressButton13.setPinnedDrawable(getResources().getDrawable(R.drawable.progress_pinned_custom));
-        progressButton13.setUnpinnedDrawable(getResources().getDrawable(R.drawable.progress_unpinned_custom));
-        final ProgressButton progressButton14 = addProgressButton(container_4);
-        progressButton14.setPinned(true);
-        final ProgressButton progressButton15 = addProgressButton(container_4);
-        progressButton15.setClickable(true);
-        progressButton15.setClickable(true);
-        progressButton15.setPinnedDrawable(getResources().getDrawable(R.drawable.progress_pinned_custom));
-        progressButton15.setUnpinnedDrawable(getResources().getDrawable(R.drawable.progress_unpinned_custom));
-        final ProgressButton progressButton16 = addProgressButton(container_4);
-        progressButton16.setClickable(true);
-        progressButton16.setClickable(true);
-        progressButton16.setPinned(true);
+        /**
+         * Default implementation of the {@link ProgressButton}.
+         * By default, the {@link ProgressButton} is not clickable, and is unpinned.
+         */
+        final ProgressButton progressButton5 = addProgressButton(container);
+
+        /**
+         * A  {@link ProgressButton} that starts pinned, and is not clickable, so it
+         * stays pinned.
+         * @see ProgressButton#setPinned(boolean)
+         * @see View#setClickable(boolean)
+         */
+        final ProgressButton progressButton6 = addProgressButton(container);
+        progressButton6.setPinned(true);
+
+        /**
+         * progressButton7 - A progress button that starts pinned, and is clickable, so it's
+         * pinned state can be changed by the user.
+         * @see ProgressButton#setPinned(boolean)
+         * @see View#setClickable(boolean)
+         */
+        final ProgressButton progressButton7 = addProgressButton(container);
+        progressButton7.setPinned(true);
+
+        /**
+         * progressButton8 - An example of how to use style the button in code.
+         * @see ProgressButton#setPinnedDrawable(android.graphics.drawable.Drawable)
+         * @see ProgressButton#setUnpinnedDrawable(android.graphics.drawable.Drawable)
+         * @see ProgressButton#setShadowDrawable(android.graphics.drawable.Drawable)
+         * @see ProgressButton#setProgressColor(int)
+         * @see ProgressButton#setCircleColor(int)
+         */
+        final ProgressButton progressButton8 = addProgressButton(container);
+        progressButton8.setProgressColor(getResources().getColor(R.color.holo_green_light));
+        progressButton8.setCircleColor(getResources().getColor(R.color.holo_green_dark));
 
         CompoundButton.OnCheckedChangeListener checkedChangeListener
                 = new CompoundButton.OnCheckedChangeListener() {
@@ -82,52 +80,19 @@ public class MainActivity extends Activity {
         progressButton6.setOnCheckedChangeListener(checkedChangeListener);
         progressButton7.setOnCheckedChangeListener(checkedChangeListener);
         progressButton8.setOnCheckedChangeListener(checkedChangeListener);
-        progressButton9.setOnCheckedChangeListener(checkedChangeListener);
-        progressButton10.setOnCheckedChangeListener(checkedChangeListener);
-        progressButton11.setOnCheckedChangeListener(checkedChangeListener);
-        progressButton12.setOnCheckedChangeListener(checkedChangeListener);
-        progressButton13.setOnCheckedChangeListener(checkedChangeListener);
-        progressButton14.setOnCheckedChangeListener(checkedChangeListener);
-        progressButton15.setOnCheckedChangeListener(checkedChangeListener);
-        progressButton16.setOnCheckedChangeListener(checkedChangeListener);
 
         SeekBar progressSeekBar = (SeekBar) findViewById(R.id.progress_seek_bar);
         progressSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                progressButton1.setProgress(progress);
-                progressButton2.setProgress(progress);
-                progressButton3.setProgress(progress);
-                progressButton4.setProgress(progress);
-                progressButton5.setProgress(progress);
-                progressButton6.setProgress(progress);
-                progressButton7.setProgress(progress);
-                progressButton8.setProgress(progress);
-                progressButton9.setProgress(progress);
-                progressButton10.setProgress(progress);
-                progressButton11.setProgress(progress);
-                progressButton12.setProgress(progress);
-                progressButton13.setProgress(progress);
-                progressButton14.setProgress(progress);
-                progressButton15.setProgress(progress);
-                progressButton16.setProgress(progress);
-
-                updatePinProgressContentDescription(progressButton1);
-                updatePinProgressContentDescription(progressButton2);
-                updatePinProgressContentDescription(progressButton3);
-                updatePinProgressContentDescription(progressButton4);
-                updatePinProgressContentDescription(progressButton5);
-                updatePinProgressContentDescription(progressButton6);
-                updatePinProgressContentDescription(progressButton7);
-                updatePinProgressContentDescription(progressButton8);
-                updatePinProgressContentDescription(progressButton9);
-                updatePinProgressContentDescription(progressButton10);
-                updatePinProgressContentDescription(progressButton11);
-                updatePinProgressContentDescription(progressButton12);
-                updatePinProgressContentDescription(progressButton13);
-                updatePinProgressContentDescription(progressButton14);
-                updatePinProgressContentDescription(progressButton15);
-                updatePinProgressContentDescription(progressButton16);
+                updateProgressButton(progressButton1, seekBar);
+                updateProgressButton(progressButton2, seekBar);
+                updateProgressButton(progressButton3, seekBar);
+                updateProgressButton(progressButton4, seekBar);
+                updateProgressButton(progressButton5, seekBar);
+                updateProgressButton(progressButton6, seekBar);
+                updateProgressButton(progressButton7, seekBar);
+                updateProgressButton(progressButton8, seekBar);
             }
 
             @Override
@@ -139,39 +104,26 @@ public class MainActivity extends Activity {
             }
         });
 
-        progressButton1.setProgress(progressSeekBar.getProgress());
-        progressButton2.setProgress(progressSeekBar.getProgress());
-        progressButton3.setProgress(progressSeekBar.getProgress());
-        progressButton4.setProgress(progressSeekBar.getProgress());
-        progressButton5.setProgress(progressSeekBar.getProgress());
-        progressButton6.setProgress(progressSeekBar.getProgress());
-        progressButton7.setProgress(progressSeekBar.getProgress());
-        progressButton8.setProgress(progressSeekBar.getProgress());
-        progressButton9.setProgress(progressSeekBar.getProgress());
-        progressButton10.setProgress(progressSeekBar.getProgress());
-        progressButton11.setProgress(progressSeekBar.getProgress());
-        progressButton12.setProgress(progressSeekBar.getProgress());
-        progressButton13.setProgress(progressSeekBar.getProgress());
-        progressButton14.setProgress(progressSeekBar.getProgress());
-        progressButton15.setProgress(progressSeekBar.getProgress());
-        progressButton16.setProgress(progressSeekBar.getProgress());
+        updateProgressButton(progressButton1, progressSeekBar);
+        updateProgressButton(progressButton2, progressSeekBar);
+        updateProgressButton(progressButton3, progressSeekBar);
+        updateProgressButton(progressButton4, progressSeekBar);
+        updateProgressButton(progressButton5, progressSeekBar);
+        updateProgressButton(progressButton6, progressSeekBar);
+        updateProgressButton(progressButton7, progressSeekBar);
+        updateProgressButton(progressButton8, progressSeekBar);
+    }
 
-        updatePinProgressContentDescription(progressButton1);
-        updatePinProgressContentDescription(progressButton2);
-        updatePinProgressContentDescription(progressButton3);
-        updatePinProgressContentDescription(progressButton4);
-        updatePinProgressContentDescription(progressButton5);
-        updatePinProgressContentDescription(progressButton6);
-        updatePinProgressContentDescription(progressButton7);
-        updatePinProgressContentDescription(progressButton8);
-        updatePinProgressContentDescription(progressButton9);
-        updatePinProgressContentDescription(progressButton10);
-        updatePinProgressContentDescription(progressButton11);
-        updatePinProgressContentDescription(progressButton12);
-        updatePinProgressContentDescription(progressButton13);
-        updatePinProgressContentDescription(progressButton14);
-        updatePinProgressContentDescription(progressButton15);
-        updatePinProgressContentDescription(progressButton16);
+    /**
+     * Helper method to update the progressButton's progress and it's
+     * content description.
+     *
+     * @param progressButton
+     * @param progressSeekBar
+     */
+    private void updateProgressButton(ProgressButton progressButton, SeekBar progressSeekBar) {
+        progressButton.setProgress(progressSeekBar.getProgress());
+        updatePinProgressContentDescription(progressButton);
     }
 
     private void updatePinProgressContentDescription(ProgressButton button) {
@@ -191,6 +143,10 @@ public class MainActivity extends Activity {
         }
     }
 
+    /**
+     * Helper function that creates a new progress button, adds it to the given layout.
+     * Returns a reference to the progress button for customization.
+     */
     private ProgressButton addProgressButton(LinearLayout container) {
         final LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                 0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);

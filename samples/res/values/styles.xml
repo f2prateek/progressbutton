@@ -17,37 +17,32 @@
 
 <resources>
     <style name="ProgressButton">
+        <!-- Misc stuff to make the sample look uniform !-->
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
     <style name="ProgressButton.1">
+        <!-- Default !-->
     </style>
     <style name="ProgressButton.2">
-        <item name="progressColor">@color/holo_green_light</item>
-        <item name="circleColor">@color/holo_red_light</item>
-    </style>
-    <style name="ProgressButton.5">
-        <item name="unpinnedDrawable">@drawable/progress_unpinned_custom</item>
-        <item name="pinnedDrawable">@drawable/progress_pinned_custom</item>
-    </style>
-    <style name="ProgressButton.6">
+        <!-- Starts pinned and is NOT clickable !-->
         <item name="pinned">true</item>
     </style>
-
     <style name="ProgressButton.Clickable">
-        <!-- Attributes required to make it clickable !-->
+        <!-- Attributes required to make a progress button clickable !-->
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
     </style>
     <style name="ProgressButton.Clickable.3">
+        <!-- Starts pinned, and IS clickable !-->
+        <item name="pinned">true</item>
     </style>
     <style name="ProgressButton.Clickable.4">
+        <!-- A styled progress button !-->
+        <!-- You can also change the drawables (pinned, unpinned and/or shadow) !-->
+        <!-- <item name="pinnedDrawable">@drawable/pinned_custom</item> !-->
+        <item name="circleColor">@color/holo_green_dark</item>
         <item name="progressColor">@color/holo_green_light</item>
-        <item name="circleColor">@color/holo_red_light</item>
-    </style>
-    <style name="ProgressButton.Clickable.7">
-        <item name="unpinnedDrawable">@drawable/progress_unpinned_custom</item>
-        <item name="pinnedDrawable">@drawable/progress_pinned_custom</item>
-    </style>
-    <style name="ProgressButton.Clickable.8">
-        <item name="pinned">true</item>
     </style>
 </resources>
