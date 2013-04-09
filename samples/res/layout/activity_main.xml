@@ -41,12 +41,11 @@
             <TextView android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:padding="8dp"
-                      android:text="From XML:"/>
+                      android:text="Via XML:"/>
 
             <LinearLayout android:orientation="horizontal"
                           android:layout_width="match_parent"
                           android:layout_height="wrap_content"
-                          android:background="@color/white"
                           android:baselineAligned="false">
                 <com.f2prateek.progressbutton.ProgressButton
                         android:id="@+id/pin_progress_1"
@@ -77,7 +76,6 @@
             <LinearLayout android:orientation="horizontal"
                           android:layout_width="match_parent"
                           android:layout_height="wrap_content"
-                          android:background="@color/black"
                           android:baselineAligned="false">
                 <com.f2prateek.progressbutton.ProgressButton
                         android:id="@+id/pin_progress_5"
@@ -108,20 +106,18 @@
             <TextView android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:padding="8dp"
-                      android:text="From Code :"/>
+                      android:text="Via Code :"/>
 
             <LinearLayout android:orientation="horizontal"
                           android:id="@+id/container_3"
                           android:layout_width="match_parent"
                           android:layout_height="wrap_content"
-                          android:background="@color/white"
                           android:baselineAligned="false"/>
 
             <LinearLayout android:orientation="horizontal"
                           android:id="@+id/container_4"
                           android:layout_width="match_parent"
                           android:layout_height="wrap_content"
-                          android:background="@color/black"
                           android:baselineAligned="false"/>
 
         </LinearLayout>

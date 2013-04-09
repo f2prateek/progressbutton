@@ -27,6 +27,7 @@
     <style name="ProgressButton.5">
     </style>
     <style name="ProgressButton.6">
+        <item name="pinned">true</item>
     </style>
 
     <style name="ProgressButton.Clickable">
@@ -43,5 +44,6 @@
     <style name="ProgressButton.Clickable.7">
     </style>
     <style name="ProgressButton.Clickable.8">
+        <item name="pinned">true</item>
     </style>
 </resources>
