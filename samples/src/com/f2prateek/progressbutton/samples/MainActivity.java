@@ -10,10 +10,13 @@ import com.f2prateek.progressbutton.ProgressButton;
 
 /**
  * 1 : Default
- * 2 : pinned (default)
- * 3 : colors
- * 4 : drawable
- * 5 : custom progress
+ * 2 : Colored
+ * 3 : Default clickable
+ * 4 : Colored clickable
+ * 5 : Custom drawables
+ * 6 : Pinned
+ * 7 : Custom drawables clickable
+ * 8 : Pinned clickable
  *
  * Row 1/2 : from xml
  * Row 3/4 : from code duplicating Row 1 and 2
