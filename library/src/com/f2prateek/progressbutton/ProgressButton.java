@@ -138,6 +138,68 @@ public class ProgressButton extends CompoundButton {
         invalidate();
     }
 
+    public int getProgressColor() {
+        return mProgressPaint.getColor();
+    }
+
+    public void setProgressColor(int progressColor) {
+        mProgressPaint.setColor(progressColor);
+        invalidate();
+    }
+
+    public int getCircleColor() {
+        return mCirclePaint.getColor();
+    }
+
+    public void setCircleColor(int circleColor) {
+        mCirclePaint.setColor(circleColor);
+        invalidate();
+    }
+
+    public Drawable getPinnedDrawable() {
+        return mPinnedDrawable;
+    }
+
+    public void setPinnedDrawable(Drawable pinnedDrawable) {
+        mPinnedDrawable = pinnedDrawable;
+        invalidate();
+    }
+
+    public Drawable getUnpinnedDrawable() {
+        return mUnpinnedDrawable;
+    }
+
+    public void setUnpinnedDrawable(Drawable unpinnedDrawable) {
+        mUnpinnedDrawable = unpinnedDrawable;
+        invalidate();
+    }
+
+    public Drawable getShadowDrawable() {
+        return mShadowDrawable;
+    }
+
+    public void setShadowDrawable(Drawable shadowDrawable) {
+        mShadowDrawable = shadowDrawable;
+        invalidate();
+    }
+
+    public int getInnerSize() {
+        return mInnerSize;
+    }
+
+    public void setInnerSize(int innerSize) {
+        mInnerSize = innerSize;
+        invalidate();
+    }
+
+    public boolean isPinned() {
+        return isChecked();
+    }
+
+    public void setPinned(boolean pinned) {
+        setChecked(pinned);
+    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         setMeasuredDimension(

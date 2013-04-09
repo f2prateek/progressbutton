@@ -7,6 +7,17 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import com.f2prateek.progressbutton.ProgressButton;
 
+/**
+ * 1 : Default
+ * 2 : pinned (default)
+ * 3 : colors
+ * 4 : drawable
+ * 5 : custom progress
+ *
+ * Row 1/2 : from xml
+ * Row 3/4 : from code duplicating Row 1 and 2
+ *
+ */
 public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,11 +31,16 @@ public class MainActivity extends Activity {
         final ProgressButton progressButton6 = (ProgressButton) findViewById(R.id.pin_progress_6);
         final ProgressButton progressButton7 = (ProgressButton) findViewById(R.id.pin_progress_7);
         final ProgressButton progressButton8 = (ProgressButton) findViewById(R.id.pin_progress_8);
-        final LinearLayout container = (LinearLayout) findViewById(R.id.container);
-        final ProgressButton progressButton9 = addProgressButton(container);
-        final ProgressButton progressButton10 = addProgressButton(container);
-        final ProgressButton progressButton11 = addProgressButton(container);
-        final ProgressButton progressButton12 = addProgressButton(container);
+        final LinearLayout container_3 = (LinearLayout) findViewById(R.id.container_3);
+        final ProgressButton progressButton9 = addProgressButton(container_3);
+        final ProgressButton progressButton10 = addProgressButton(container_3);
+        final ProgressButton progressButton11 = addProgressButton(container_3);
+        final ProgressButton progressButton12 = addProgressButton(container_3);
+        final LinearLayout container_4 = (LinearLayout) findViewById(R.id.container_4);
+        final ProgressButton progressButton13 = addProgressButton(container_4);
+        final ProgressButton progressButton14 = addProgressButton(container_4);
+        final ProgressButton progressButton15 = addProgressButton(container_4);
+        final ProgressButton progressButton16 = addProgressButton(container_4);
 
         CompoundButton.OnCheckedChangeListener checkedChangeListener
                 = new CompoundButton.OnCheckedChangeListener() {
@@ -46,6 +62,10 @@ public class MainActivity extends Activity {
         progressButton10.setOnCheckedChangeListener(checkedChangeListener);
         progressButton11.setOnCheckedChangeListener(checkedChangeListener);
         progressButton12.setOnCheckedChangeListener(checkedChangeListener);
+        progressButton13.setOnCheckedChangeListener(checkedChangeListener);
+        progressButton14.setOnCheckedChangeListener(checkedChangeListener);
+        progressButton15.setOnCheckedChangeListener(checkedChangeListener);
+        progressButton16.setOnCheckedChangeListener(checkedChangeListener);
 
         SeekBar progressSeekBar = (SeekBar) findViewById(R.id.progress_seek_bar);
         progressSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -63,6 +83,10 @@ public class MainActivity extends Activity {
                 progressButton10.setProgress(progress);
                 progressButton11.setProgress(progress);
                 progressButton12.setProgress(progress);
+                progressButton13.setProgress(progress);
+                progressButton14.setProgress(progress);
+                progressButton15.setProgress(progress);
+                progressButton16.setProgress(progress);
 
                 updatePinProgressContentDescription(progressButton1);
                 updatePinProgressContentDescription(progressButton2);
@@ -76,6 +100,10 @@ public class MainActivity extends Activity {
                 updatePinProgressContentDescription(progressButton10);
                 updatePinProgressContentDescription(progressButton11);
                 updatePinProgressContentDescription(progressButton12);
+                updatePinProgressContentDescription(progressButton13);
+                updatePinProgressContentDescription(progressButton14);
+                updatePinProgressContentDescription(progressButton15);
+                updatePinProgressContentDescription(progressButton16);
             }
 
             @Override
@@ -99,6 +127,10 @@ public class MainActivity extends Activity {
         progressButton10.setProgress(progressSeekBar.getProgress());
         progressButton11.setProgress(progressSeekBar.getProgress());
         progressButton12.setProgress(progressSeekBar.getProgress());
+        progressButton13.setProgress(progressSeekBar.getProgress());
+        progressButton14.setProgress(progressSeekBar.getProgress());
+        progressButton15.setProgress(progressSeekBar.getProgress());
+        progressButton16.setProgress(progressSeekBar.getProgress());
 
         updatePinProgressContentDescription(progressButton1);
         updatePinProgressContentDescription(progressButton2);
@@ -112,6 +144,10 @@ public class MainActivity extends Activity {
         updatePinProgressContentDescription(progressButton10);
         updatePinProgressContentDescription(progressButton11);
         updatePinProgressContentDescription(progressButton12);
+        updatePinProgressContentDescription(progressButton13);
+        updatePinProgressContentDescription(progressButton14);
+        updatePinProgressContentDescription(progressButton15);
+        updatePinProgressContentDescription(progressButton16);
     }
 
     private void updatePinProgressContentDescription(ProgressButton button) {

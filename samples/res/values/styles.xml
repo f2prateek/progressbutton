@@ -17,14 +17,15 @@
 
 <resources>
     <style name="ProgressButton">
+    </style>
+    <style name="ProgressButton.1">
+    </style>
+    <style name="ProgressButton.Clickable">
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
         <item name="android:background">?android:selectableItemBackground</item>
     </style>
-    <style name="ProgressButton.1">
-    </style>
     <style name="ProgressButton.2">
-        <item name="progressColor">@color/holo_green_light</item>
     </style>
     <style name="ProgressButton.3">
     </style>

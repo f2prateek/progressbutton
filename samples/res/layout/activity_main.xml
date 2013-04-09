@@ -87,10 +87,17 @@
         </LinearLayout>
 
         <LinearLayout android:orientation="horizontal"
-                      android:id="@+id/container"
+                      android:id="@+id/container_3"
                       android:layout_width="match_parent"
                       android:layout_height="wrap_content"
-                      android:background="@color/holo_red_light"
+                      android:background="@color/white"
+                      android:baselineAligned="false"/>
+
+        <LinearLayout android:orientation="horizontal"
+                      android:id="@+id/container_4"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:background="@color/black"
                       android:baselineAligned="false"/>
 
         <SeekBar android:id="@+id/progress_seek_bar"
