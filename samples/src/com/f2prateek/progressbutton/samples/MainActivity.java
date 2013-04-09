@@ -51,6 +51,8 @@ public class MainActivity extends Activity {
          */
         final ProgressButton progressButton7 = addProgressButton(container);
         progressButton7.setPinned(true);
+        progressButton7.setClickable(true);
+        progressButton7.setFocusable(true);
 
         /**
          * progressButton8 - An example of how to use style the button in code.
@@ -63,6 +65,8 @@ public class MainActivity extends Activity {
         final ProgressButton progressButton8 = addProgressButton(container);
         progressButton8.setProgressColor(getResources().getColor(R.color.holo_green_light));
         progressButton8.setCircleColor(getResources().getColor(R.color.holo_green_dark));
+        progressButton8.setClickable(true);
+        progressButton8.setFocusable(true);
 
         CompoundButton.OnCheckedChangeListener checkedChangeListener
                 = new CompoundButton.OnCheckedChangeListener() {
