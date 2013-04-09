@@ -51,7 +51,11 @@ public class MainActivity extends Activity {
         final ProgressButton progressButton13 = addProgressButton(container_4);
         final ProgressButton progressButton14 = addProgressButton(container_4);
         final ProgressButton progressButton15 = addProgressButton(container_4);
+        progressButton15.setClickable(true);
+        progressButton15.setClickable(true);
         final ProgressButton progressButton16 = addProgressButton(container_4);
+        progressButton16.setClickable(true);
+        progressButton16.setClickable(true);
 
         CompoundButton.OnCheckedChangeListener checkedChangeListener
                 = new CompoundButton.OnCheckedChangeListener() {
