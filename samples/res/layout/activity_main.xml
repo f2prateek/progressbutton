@@ -18,11 +18,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp">
+
+
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:padding="8dp"
+                  android:text="From XML:"/>
 
         <LinearLayout android:orientation="horizontal"
                       android:layout_width="match_parent"
@@ -43,13 +50,13 @@
                     android:layout_height="wrap_content"/>
             <com.f2prateek.progressbutton.ProgressButton
                     android:id="@+id/pin_progress_3"
-                    style="@style/ProgressButton.3"
+                    style="@style/ProgressButton.Clickable.3"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"/>
             <com.f2prateek.progressbutton.ProgressButton
                     android:id="@+id/pin_progress_4"
-                    style="@style/ProgressButton.4"
+                    style="@style/ProgressButton.Clickable.4"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"/>
@@ -74,17 +81,22 @@
                     android:layout_height="wrap_content"/>
             <com.f2prateek.progressbutton.ProgressButton
                     android:id="@+id/pin_progress_7"
-                    style="@style/ProgressButton.7"
+                    style="@style/ProgressButton.Clickable.7"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"/>
             <com.f2prateek.progressbutton.ProgressButton
                     android:id="@+id/pin_progress_8"
-                    style="@style/ProgressButton.8"
+                    style="@style/ProgressButton.Clickable.8"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"/>
         </LinearLayout>
+
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:padding="8dp"
+                  android:text="From Code :"/>
 
         <LinearLayout android:orientation="horizontal"
                       android:id="@+id/container_3"

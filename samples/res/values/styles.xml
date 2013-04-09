@@ -20,23 +20,28 @@
     </style>
     <style name="ProgressButton.1">
     </style>
-    <style name="ProgressButton.Clickable">
-        <item name="android:clickable">true</item>
-        <item name="android:focusable">true</item>
-        <item name="android:background">?android:selectableItemBackground</item>
-    </style>
     <style name="ProgressButton.2">
-    </style>
-    <style name="ProgressButton.3">
-    </style>
-    <style name="ProgressButton.4">
+        <item name="progressColor">@color/holo_green_light</item>
+        <item name="circleColor">@color/holo_red_light</item>
     </style>
     <style name="ProgressButton.5">
     </style>
     <style name="ProgressButton.6">
     </style>
-    <style name="ProgressButton.7">
+
+    <style name="ProgressButton.Clickable">
+        <!-- Attributes required to make it clickable !-->
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
     </style>
-    <style name="ProgressButton.8">
+    <style name="ProgressButton.Clickable.3">
+    </style>
+    <style name="ProgressButton.Clickable.4">
+        <item name="progressColor">@color/holo_green_light</item>
+        <item name="circleColor">@color/holo_red_light</item>
+    </style>
+    <style name="ProgressButton.Clickable.7">
+    </style>
+    <style name="ProgressButton.Clickable.8">
     </style>
 </resources>

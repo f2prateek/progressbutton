@@ -1,6 +1,7 @@
 package com.f2prateek.progressbutton.samples;
 
 import android.app.Activity;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
@@ -31,11 +32,21 @@ public class MainActivity extends Activity {
         final ProgressButton progressButton6 = (ProgressButton) findViewById(R.id.pin_progress_6);
         final ProgressButton progressButton7 = (ProgressButton) findViewById(R.id.pin_progress_7);
         final ProgressButton progressButton8 = (ProgressButton) findViewById(R.id.pin_progress_8);
+
         final LinearLayout container_3 = (LinearLayout) findViewById(R.id.container_3);
         final ProgressButton progressButton9 = addProgressButton(container_3);
         final ProgressButton progressButton10 = addProgressButton(container_3);
+        progressButton10.setProgressColor(getResources().getColor(R.color.holo_green_light));
+        progressButton10.setCircleColor(getResources().getColor(R.color.holo_red_light));
         final ProgressButton progressButton11 = addProgressButton(container_3);
+        progressButton11.setClickable(true);
+        progressButton11.setClickable(true);
         final ProgressButton progressButton12 = addProgressButton(container_3);
+        progressButton12.setClickable(true);
+        progressButton12.setClickable(true);
+        progressButton12.setProgressColor(getResources().getColor(R.color.holo_green_light));
+        progressButton12.setCircleColor(getResources().getColor(R.color.holo_red_light));
+
         final LinearLayout container_4 = (LinearLayout) findViewById(R.id.container_4);
         final ProgressButton progressButton13 = addProgressButton(container_4);
         final ProgressButton progressButton14 = addProgressButton(container_4);

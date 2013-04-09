@@ -88,6 +88,9 @@ public class ProgressButton extends CompoundButton {
 
         mInnerSize = res.getDimensionPixelSize(R.dimen.progress_inner_size);
         setChecked(a.getBoolean(R.styleable.ProgressButton_pinned, false));
+        setClickable(a.getBoolean(R.styleable.ProgressButton_android_clickable, false));
+        setFocusable(a.getBoolean(R.styleable.ProgressButton_android_focusable, false));
+        setBackground(a.getDrawable(R.styleable.ProgressButton_android_selectableItemBackground));
 
         a.recycle();
 
