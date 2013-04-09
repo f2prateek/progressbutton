@@ -52,11 +52,15 @@ public class MainActivity extends Activity {
 
         final LinearLayout container_4 = (LinearLayout) findViewById(R.id.container_4);
         final ProgressButton progressButton13 = addProgressButton(container_4);
+        progressButton13.setPinnedDrawable(getResources().getDrawable(R.drawable.progress_pinned_custom));
+        progressButton13.setUnpinnedDrawable(getResources().getDrawable(R.drawable.progress_unpinned_custom));
         final ProgressButton progressButton14 = addProgressButton(container_4);
         progressButton14.setPinned(true);
         final ProgressButton progressButton15 = addProgressButton(container_4);
         progressButton15.setClickable(true);
         progressButton15.setClickable(true);
+        progressButton15.setPinnedDrawable(getResources().getDrawable(R.drawable.progress_pinned_custom));
+        progressButton15.setUnpinnedDrawable(getResources().getDrawable(R.drawable.progress_unpinned_custom));
         final ProgressButton progressButton16 = addProgressButton(container_4);
         progressButton16.setClickable(true);
         progressButton16.setClickable(true);

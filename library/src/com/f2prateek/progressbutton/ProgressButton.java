@@ -183,6 +183,7 @@ public class ProgressButton extends CompoundButton {
 
     public void setShadowDrawable(Drawable shadowDrawable) {
         mShadowDrawable = shadowDrawable;
+        mDrawableSize = mShadowDrawable.getIntrinsicWidth();
         invalidate();
     }
 

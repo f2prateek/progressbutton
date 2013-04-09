@@ -25,6 +25,8 @@
         <item name="circleColor">@color/holo_red_light</item>
     </style>
     <style name="ProgressButton.5">
+        <item name="unpinnedDrawable">@drawable/progress_unpinned_custom</item>
+        <item name="pinnedDrawable">@drawable/progress_pinned_custom</item>
     </style>
     <style name="ProgressButton.6">
         <item name="pinned">true</item>
@@ -42,6 +44,8 @@
         <item name="circleColor">@color/holo_red_light</item>
     </style>
     <style name="ProgressButton.Clickable.7">
+        <item name="unpinnedDrawable">@drawable/progress_unpinned_custom</item>
+        <item name="pinnedDrawable">@drawable/progress_pinned_custom</item>
     </style>
     <style name="ProgressButton.Clickable.8">
         <item name="pinned">true</item>
