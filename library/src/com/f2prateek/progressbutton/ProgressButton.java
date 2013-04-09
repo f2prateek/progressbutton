@@ -29,13 +29,53 @@ import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.widget.CompoundButton;
 
+/**
+ * A two-state button that indicates whether some related content is pinned
+ * (the checked state) or unpinned (the unchecked state), and the download
+ * progress for this content.
+ * <p/>
+ * See <a href="http://developer.android.com/design/building-blocks/progress.html#custom-indicators">Android
+ * Design: Progress &amp; Activity</a> for more details on this custom
+ * indicator.
+ * <p/>
+ * The example on the website is also the default visual implementation that is provided.
+ * By default the button is not clickable (by the user). If you want the user to be able to control the state,
+ * use {@link android.view.View#setClickable(boolean)}.
+ *
+ * @see android.view.View#setClickable(boolean)
+ * @see android.view.View#setFocusable(boolean)
+ */
 public class ProgressButton extends CompoundButton {
+
+    /**
+     * The maximum progress. Defaults to 100.
+     */
     private int mMax;
+    /**
+     * The current progress. Defaults to 0.
+     */
     private int mProgress;
+    /**
+     * The drawable used as the shadow.
+     */
     private Drawable mShadowDrawable;
+    /**
+     * The drawable displayed when the user unpins an item.
+     */
     private Drawable mUnpinnedDrawable;
+    /**
+     * The drawable displayed when the user pins an item.
+     */
     private Drawable mPinnedDrawable;
+    /**
+     * The paint for the circle.
+     */
     private Paint mCirclePaint;
+    /**
+     * The paint tp show the progress.
+     *
+     * @see #mProgress
+     */
     private Paint mProgressPaint;
     private Rect mTempRect = new Rect();
     private RectF mTempRectF = new RectF();
@@ -55,10 +95,17 @@ public class ProgressButton extends CompoundButton {
         init(context, attrs, defStyle);
     }
 
+    /**
+     * Initialise the {@link ProgressButton}
+     *
+     * @param context  the application environment
+     * @param attrs    Attribute Set provided
+     * @param defStyle unused.
+     */
     private void init(Context context, AttributeSet attrs, int defStyle) {
         // Attribute initialization
         final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ProgressButton,
-                defStyle, 0);
+                R.attr.progressButtonStyle, R.style.ProgressButton_Pin);
         final Resources res = getResources();
 
         mProgress = a.getInteger(R.styleable.ProgressButton_progress, 0);
@@ -141,46 +188,76 @@ public class ProgressButton extends CompoundButton {
         invalidate();
     }
 
+    /**
+     * Get the color used to display the progress level.
+     */
     public int getProgressColor() {
         return mProgressPaint.getColor();
     }
 
+    /**
+     * Sets the color used to display the progress level.
+     */
     public void setProgressColor(int progressColor) {
         mProgressPaint.setColor(progressColor);
         invalidate();
     }
 
+    /**
+     * Get the color used to display the progress background.
+     */
     public int getCircleColor() {
         return mCirclePaint.getColor();
     }
 
+    /**
+     * Sets the color used to display the progress background.
+     */
     public void setCircleColor(int circleColor) {
         mCirclePaint.setColor(circleColor);
         invalidate();
     }
 
+    /**
+     * Get the drawable that is displayed when the item is pinned.
+     */
     public Drawable getPinnedDrawable() {
         return mPinnedDrawable;
     }
 
+    /**
+     * Set the drawable that is displayed when the item is pinned.
+     */
     public void setPinnedDrawable(Drawable pinnedDrawable) {
         mPinnedDrawable = pinnedDrawable;
         invalidate();
     }
 
+    /**
+     * Get the drawable that is displayed when the item is unpinned.
+     */
     public Drawable getUnpinnedDrawable() {
         return mUnpinnedDrawable;
     }
 
+    /**
+     * Set the drawable that is displayed when the item is unpinned.
+     */
     public void setUnpinnedDrawable(Drawable unpinnedDrawable) {
         mUnpinnedDrawable = unpinnedDrawable;
         invalidate();
     }
 
+    /**
+     * Get the drawable that is displayed as the shadow.
+     */
     public Drawable getShadowDrawable() {
         return mShadowDrawable;
     }
 
+    /**
+     * Set the drawable that is displayed as the shadow.
+     */
     public void setShadowDrawable(Drawable shadowDrawable) {
         mShadowDrawable = shadowDrawable;
         mDrawableSize = mShadowDrawable.getIntrinsicWidth();
@@ -196,10 +273,16 @@ public class ProgressButton extends CompoundButton {
         invalidate();
     }
 
+    /**
+     * Get whether the button is pinned or not.
+     */
     public boolean isPinned() {
         return isChecked();
     }
 
+    /**
+     * Set whether the button is pinned or not.
+     */
     public void setPinned(boolean pinned) {
         setChecked(pinned);
     }
