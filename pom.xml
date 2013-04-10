@@ -44,7 +44,7 @@
     <scm>
         <url>https://github.com/f2prateek/progressbutton</url>
         <connection>scm:git:git://github.com/f2prateek/progressbutton.git</connection>
-        <developerConnection>scm:git:git@github.com/f2prateek/progressbutton.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:f2prateek/progressbutton.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
