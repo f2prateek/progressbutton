@@ -275,6 +275,7 @@ public class ProgressButton extends CompoundButton {
 
     /**
      * Get whether the button is pinned or not.
+     * Equivalent to {@link CompoundButton#isChecked()}
      */
     public boolean isPinned() {
         return isChecked();
@@ -282,6 +283,7 @@ public class ProgressButton extends CompoundButton {
 
     /**
      * Set whether the button is pinned or not.
+     * Equivalent to {@link CompoundButton#setChecked(boolean)}
      */
     public void setPinned(boolean pinned) {
         setChecked(pinned);
