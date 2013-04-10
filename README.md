@@ -4,13 +4,13 @@ ProgressButton
 ProgressButton is a custom progress indicator with a tiny footprint. Based on the sample code provided by [Roman Nurik][4] on [Google Code][3].
 The default implementation provides a pin progress button as seen on the [Android design site][1].
 
-![Pin Progress Button][5]
+![Pin Progress Button Android developer][2]
 
 The color indicates whether it's downloaded (blue) or not (gray). The appearance of the pin indicates whether the download is permanent (white, upright) or temporary (gray, diagonal). When state is in the process of changing, progress is indicated by a moving pie chart
 
 Try out the sample application in the samples/ folder of the project.
 
-![]
+![Sample application Screenshot][5]
 
 The sample application shows 4 different buttons in each row. The first row is done via xml, and the second row is via code.
 
