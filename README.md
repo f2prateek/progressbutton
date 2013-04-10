@@ -35,7 +35,7 @@ The library is also available through maven.
 <dependency>
   <groupId>com.f2prateek</groupId>
   <artifactId>progressbutton</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
 </dependency>
 ```
 
