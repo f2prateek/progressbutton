@@ -28,7 +28,7 @@
     <groupId>com.f2prateek</groupId>
     <artifactId>progressbutton-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <name>Android Progress Button (Parent)</name>
     <description>A button that helps with showing progress</description>
@@ -44,7 +44,7 @@
         <url>https://github.com/f2prateek/progressbutton</url>
         <connection>scm:git:git://github.com/f2prateek/progressbutton.git</connection>
         <developerConnection>scm:git:git@github.com:f2prateek/progressbutton.git</developerConnection>
-        <tag>progressbutton-parent-1.0.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <licenses>
