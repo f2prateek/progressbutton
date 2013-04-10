@@ -44,7 +44,7 @@ public class MainActivity extends Activity {
         progressButton6.setPinned(true);
 
         /**
-         * progressButton7 - A progress button that starts pinned, and is clickable, so it's
+         * A progress button that starts pinned, and is clickable, so it's
          * pinned state can be changed by the user.
          * @see ProgressButton#setPinned(boolean)
          * @see View#setClickable(boolean)
@@ -55,7 +55,7 @@ public class MainActivity extends Activity {
         progressButton7.setFocusable(true);
 
         /**
-         * progressButton8 - An example of how to use style the button in code.
+         * An example of how to use style the button in code.
          * @see ProgressButton#setPinnedDrawable(android.graphics.drawable.Drawable)
          * @see ProgressButton#setUnpinnedDrawable(android.graphics.drawable.Drawable)
          * @see ProgressButton#setShadowDrawable(android.graphics.drawable.Drawable)
