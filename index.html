@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Progressbutton : A custom progress indicator with a tiny footprint." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Progressbutton</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/f2prateek/progressbutton">View on GitHub</a>
+
+          <h1 id="project_title">Progressbutton</h1>
+          <h2 id="project_tagline">A custom progress indicator with a tiny footprint.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/f2prateek/progressbutton/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/f2prateek/progressbutton/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>ProgressButton</h1>
+
+<p>ProgressButton is a custom progress indicator with a tiny footprint. Based on the sample code provided by <a href="https://plus.google.com/+RomanNurik/posts/TbCkqQN4AEk">Roman Nurik</a> on <a href="https://code.google.com/p/romannurik-code/source/browse/misc/pinprogress">Google Code</a>.
+The default implementation provides a pin progress button as seen on the <a href="https://developer.android.com/design/building-blocks/progress.html#custom-indicators">Android design site</a>.</p>
+
+<p><img src="https://developer.android.com/design/media/progress_activity_custom.png" alt="Pin Progress Button Android developer"></p>
+
+<p>The color indicates whether it's downloaded (blue) or not (gray). The appearance of the pin indicates whether the download is permanent (white, upright) or temporary (gray, diagonal). When state is in the process of changing, progress is indicated by a moving pie chart</p>
+
+<p>Try out the sample application in the samples/ folder of the project.</p>
+
+<p><img src="https://raw.github.com/f2prateek/progressbutton/master/assets/sample-app-screenshot.png" alt="Sample application Screenshot"></p>
+
+<p>The sample application shows 4 different buttons in each row. The first row is done via xml, and the second row is via code.</p>
+
+<ol>
+<li>Default implementation.</li>
+<li>A progress button that is pinned and NOT clickable by the user.</li>
+<li>A progress button that starts in a pinned state, and IS clickable by the user.</li>
+<li>A progress button that is styled. In addition to changing the color, you can supply your resources by :</li>
+</ol><pre><code>* setShadowDrawable in code, shadowDrawable in xml
+* setUnpinnedDrawable in code, unpinnedDrawable in xml
+* setPinnedDrawable in code, pinnedDrawable in xml
+</code></pre>
+
+<blockquote>
+<p>Now, a quick word of caution: consider whether this is really necessary for your app before using it! Ideally, all your content should be available offline, and it should download fast enough that showing progress would be superfluous. That said, if your content make take some time to download and you can't come up with an awesome, automagical smart-offlining scheme, then this may be an appropriate UI element.</p>
+</blockquote>
+
+<h1>Usage</h1>
+
+<p>Due the the theming capabilities of the library, it must be referenced as a library project in eclipse. 
+The library is also available through maven.</p>
+
+<div class="highlight"><pre><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>com.f2prateek<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>progressbutton<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.0.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+
+<h1>Developed By</h1>
+
+<ul>
+<li>Prateek Srivastava - <a href="mailto:f2prateek@gmail.com">f2prateek@gmail.com</a>
+</li>
+</ul><h1>License</h1>
+
+<pre><code>Copyright 2013 Prateek Srivastava
+Copyright 2012 Roman Nurik
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Progressbutton maintained by <a href="https://github.com/f2prateek">f2prateek</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
