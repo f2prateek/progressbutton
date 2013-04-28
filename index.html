@@ -6,7 +6,7 @@ layout: default
 
 <h3>Introduction</h3>
 
-<p>ProgressButton is a custom progress indicator with a tiny footprint. The default implementation provides a pin progress button as seen on the <a href="https://developer.android.com/design/building-blocks/progress.html#custom-indicators">Android design site</a>.</p>
+<p><code>ProgressButton</code> is a custom progress indicator with a tiny footprint. The default implementation provides a pin progress button as seen on the <a href="https://developer.android.com/design/building-blocks/progress.html#custom-indicators">Android design site</a>.</p>
 <p><code>ProgressButton</code> is highly customizable, you can supply your own resoures and progress values.</p>
 
 <p><img src="https://developer.android.com/design/media/progress_activity_custom.png" alt="Pin Progress Button"></p>
@@ -19,14 +19,14 @@ layout: default
                         android:layout_height="wrap_content"/>
 </pre>
 
-<p>Optionally, you could manually create the view from your <code>Context</code> as : </p> 
+<p>Optionally, you could manually create the view from your <code>Context</code> as: </p> 
 <pre class="prettyprint">
 ProgressButton button = new ProgressButton(context)<
 </pre>
 
 <p><code>ProgressButton</code> is a subclass of <a href="https://developer.android.com/reference/android/widget/CompoundButton.html">CompundButton</a>, so you can use any of it's methods and style attributes as well.</p>
 
-<p>Custom attributes defined for <code>ProgressButton</code></p>
+<p>Custom attributes defined for <code>ProgressButton</code>:</p>
 <ul>
   <li><code>progress</code></li>
   <li><code>max</code></li>
@@ -56,6 +56,11 @@ ProgressButton button = new ProgressButton(context)<
   &lt;/dependency>
 &lt;/dependencies>
 </pre>
+
+<h3>Credits</h3>
+<p>Developed by <a href="https://twitter.com/f2prateek">Prateek Srivastava</a>.</p>
+<p>Thanks to <a href="https://plus.google.com/+RomanNurik/posts/TbCkqQN4AEk">Roman Nurik</a> for providing the implementation that this library is based on.</p>
+<p>Thanks to<a href="https://github.com/square">Square</a> for the website template.</p>
 
 <h3>License</h3>
 
