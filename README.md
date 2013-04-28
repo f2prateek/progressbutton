@@ -7,7 +7,7 @@ Based on the sample code provided by [Roman Nurik][2] on [Google Code][3].
 
 ![Pin Progress Button Android developer][4]
 
-FOr more information, see the [website][5].
+For more information, see the [website][5].
 Try out the sample application in the samples/ folder of the project.
 
 Developed By
