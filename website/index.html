@@ -1,0 +1,82 @@
+---
+layout: default
+---
+
+<p><img src="static/screenshot.png" alt="Sample application Screenshot"></p>
+
+<h3>Introduction</h3>
+
+<p><code>ProgressButton</code> is a custom progress indicator with a tiny footprint. The default implementation provides a pin progress button as seen on the <a href="https://developer.android.com/design/building-blocks/progress.html#custom-indicators">Android design site</a>.</p>
+<p><code>ProgressButton</code> is highly customizable, you can supply your own resoures and progress values.</p>
+
+<p><img src="https://developer.android.com/design/media/progress_activity_custom.png" alt="Pin Progress Button"></p>
+
+<h3>Using ProgressButton</h3>
+<p>Simply define it in your your xml as:</p>
+<pre class="prettyprint">
+&lt;/com.f2prateek.progressbutton.ProgressButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+</pre>
+
+<p>Optionally, you could manually create the view from your <code>Context</code> as: </p> 
+<pre class="prettyprint">
+ProgressButton button = new ProgressButton(context);
+</pre>
+
+<p><code>ProgressButton</code> is a subclass of <a href="https://developer.android.com/reference/android/widget/CompoundButton.html">CompundButton</a>, so you can use any of it's methods and style attributes as well.</p>
+
+<p>Custom attributes defined for <code>ProgressButton</code>:</p>
+<ul>
+  <li><code>progress</code></li>
+  <li><code>max</code></li>
+  <li><code>circleColor</code></li>
+  <li><code>progressColor</code></li>
+  <li><code>pinnedDrawable</code></li>
+  <li><code>unpinnedDrawable</code></li>
+  <li><code>shadowDrawable</code></li>
+  <li><code>innerSize</code></li>
+  <li><code>pinned</code></li>  
+</ul>
+
+<p>Check out the sample app on <a href="https://play.google.com/store/apps/details?id=com.f2prateek.progressbutton.samples">Google Play</a> for an example. The source is available in the <code>samples</code> folder of the repository.</p> 
+
+<h3>Add ProgressButton to your build</h3>
+
+<p>Due the the theming capabilities of the library, it must be referenced as a library project.</p>
+
+<p>The library is also available through maven.</p>
+<pre class="prettyprint">
+&lt;dependencies>
+  &lt;dependency>
+    &lt;groupId>com.f2prateek&lt;/groupId>
+    &lt;artifactId>progressbutton&lt;/artifactId>
+    &lt;version>${progressbutton.version}&lt;/version>
+    &lt;type>apklib&lt;/type>
+  &lt;/dependency>
+&lt;/dependencies>
+</pre>
+
+<h3>Credits</h3>
+<p>Developed by <a href="https://twitter.com/f2prateek">Prateek Srivastava</a>.</p>
+<p>Thanks to <a href="https://plus.google.com/+RomanNurik/posts/TbCkqQN4AEk">Roman Nurik</a> for providing the implementation that this library is based on.</p>
+<p>Thanks to<a href="https://github.com/square">Square</a> for the website template.</p>
+
+<h3>License</h3>
+
+<pre>
+Copyright 2013 Prateek Srivastava
+Copyright 2012 Roman Nurik
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</pre>
