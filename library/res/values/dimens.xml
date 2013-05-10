@@ -16,5 +16,5 @@
   -->
 
 <resources>
-    <dimen name="progress_inner_size">28dp</dimen>
+  <dimen name="progress_inner_size">28dp</dimen>
 </resources>

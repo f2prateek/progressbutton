@@ -15,64 +15,64 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <SeekBar android:id="@+id/progress_seek_bar"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:layout_marginTop="16dp"
-             android:progress="66"
-             android:max="100"/>
+  <SeekBar android:id="@+id/progress_seek_bar"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:progress="66"
+      android:max="100"/>
 
-    <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1">
 
-        <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
 
 
-            <TextView android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:padding="8dp"
-                      android:text="Via XML:"/>
+      <TextView android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:padding="8dp"
+          android:text="Via XML:"/>
 
-            <LinearLayout android:orientation="horizontal"
-                          android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:baselineAligned="false">
-                <com.f2prateek.progressbutton.ProgressButton
-                        android:id="@+id/pin_progress_1"
-                        style="@style/ProgressButton.1"/>
-                <com.f2prateek.progressbutton.ProgressButton
-                        android:id="@+id/pin_progress_2"
-                        style="@style/ProgressButton.2"/>
-                <com.f2prateek.progressbutton.ProgressButton
-                        android:id="@+id/pin_progress_3"
-                        style="@style/ProgressButton.Clickable.3"/>
-                <com.f2prateek.progressbutton.ProgressButton
-                        android:id="@+id/pin_progress_4"
-                        style="@style/ProgressButton.Clickable.4" />
-            </LinearLayout>
+      <LinearLayout android:orientation="horizontal"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:baselineAligned="false">
+        <com.f2prateek.progressbutton.ProgressButton
+            android:id="@+id/pin_progress_1"
+            style="@style/ProgressButton.1"/>
+        <com.f2prateek.progressbutton.ProgressButton
+            android:id="@+id/pin_progress_2"
+            style="@style/ProgressButton.2"/>
+        <com.f2prateek.progressbutton.ProgressButton
+            android:id="@+id/pin_progress_3"
+            style="@style/ProgressButton.Clickable.3"/>
+        <com.f2prateek.progressbutton.ProgressButton
+            android:id="@+id/pin_progress_4"
+            style="@style/ProgressButton.Clickable.4"/>
+      </LinearLayout>
 
-            <TextView android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:padding="8dp"
-                      android:text="Via Code :"/>
+      <TextView android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:padding="8dp"
+          android:text="Via Code :"/>
 
-            <LinearLayout android:orientation="horizontal"
-                          android:id="@+id/container"
-                          android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:baselineAligned="false"/>
+      <LinearLayout android:orientation="horizontal"
+          android:id="@+id/container"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:baselineAligned="false"/>
 
-        </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
+  </ScrollView>
 
 </LinearLayout>

@@ -16,6 +16,6 @@ limitations under the License.
 -->
 
 <resources>
-    <color name="progress_default_circle_color">#80ffffff</color>
-    <color name="progress_default_progress_color">#33b5e5</color>
+  <color name="progress_default_circle_color">#80ffffff</color>
+  <color name="progress_default_progress_color">#33b5e5</color>
 </resources>

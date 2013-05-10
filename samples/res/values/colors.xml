@@ -18,7 +18,7 @@
 
 <resources>
 
-    <color name="holo_green_light">#ff99cc00</color>
-    <color name="holo_green_dark">#ff669900</color>
+  <color name="holo_green_light">#ff99cc00</color>
+  <color name="holo_green_dark">#ff669900</color>
 
 </resources>

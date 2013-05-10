@@ -16,127 +16,129 @@
   ~ limitations under the License.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>7</version>
-    </parent>
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>7</version>
+  </parent>
 
-    <groupId>com.f2prateek</groupId>
-    <artifactId>progressbutton-parent</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0.2-SNAPSHOT</version>
+  <groupId>com.f2prateek</groupId>
+  <artifactId>progressbutton-parent</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0.2-SNAPSHOT</version>
 
-    <name>Android Progress Button (Parent)</name>
-    <description>A button that helps with showing progress</description>
+  <name>Android Progress Button (Parent)</name>
+  <description>A button that helps with showing progress</description>
+  <url>https://github.com/f2prateek/progressbutton</url>
+  <inceptionYear>2012</inceptionYear>
+
+  <modules>
+    <module>library</module>
+    <module>samples</module>
+  </modules>
+
+  <scm>
     <url>https://github.com/f2prateek/progressbutton</url>
-    <inceptionYear>2012</inceptionYear>
+    <connection>scm:git:git://github.com/f2prateek/progressbutton.git</connection>
+    <developerConnection>scm:git:git@github.com:f2prateek/progressbutton.git</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
 
-    <modules>
-        <module>library</module>
-        <module>samples</module>
-    </modules>
+  <licenses>
+    <license>
+      <name>Apache License Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
 
-    <scm>
-        <url>https://github.com/f2prateek/progressbutton</url>
-        <connection>scm:git:git://github.com/f2prateek/progressbutton.git</connection>
-        <developerConnection>scm:git:git@github.com:f2prateek/progressbutton.git</developerConnection>
-        <tag>HEAD</tag>
-    </scm>
+  <issueManagement>
+    <system>GitHub Issues</system>
+    <url>https://github.com/f2prateek/progressbutton/issues</url>
+  </issueManagement>
 
-    <licenses>
-        <license>
-            <name>Apache License Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <issueManagement>
-        <system>GitHub Issues</system>
-        <url>https://github.com/f2prateek/progressbutton/issues</url>
-    </issueManagement>
+    <java.version>1.6</java.version>
+    <android.version>4.1.1.4</android.version>
+    <android.platform>16</android.platform>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <android-support.version>r7</android-support.version>
+  </properties>
 
-        <java.version>1.6</java.version>
-        <android.version>4.1.1.4</android.version>
-        <android.platform>16</android.platform>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.google.android</groupId>
+        <artifactId>android</artifactId>
+        <version>${android.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
-        <android-support.version>r7</android-support.version>
-    </properties>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.0</version>
+          <configuration>
+            <source>${java.version}</source>
+            <target>${java.version}</target>
+          </configuration>
+        </plugin>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.google.android</groupId>
-                <artifactId>android</artifactId>
-                <version>${android.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+        <plugin>
+          <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+          <artifactId>android-maven-plugin</artifactId>
+          <version>3.5.1</version>
+          <configuration>
+            <sdk>
+              <platform>${android.platform}</platform>
+            </sdk>
+          </configuration>
+          <extensions>true</extensions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
 
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.0</version>
-                    <configuration>
-                        <source>${java.version}</source>
-                        <target>${java.version}</target>
-                    </configuration>
-                </plugin>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.4</version>
+        <configuration>
+          <autoVersionSubmodules>true</autoVersionSubmodules>
+        </configuration>
+      </plugin>
 
-                <plugin>
-                    <groupId>com.jayway.maven.plugins.android.generation2</groupId>
-                    <artifactId>android-maven-plugin</artifactId>
-                    <version>3.5.1</version>
-                    <configuration>
-                        <sdk>
-                            <platform>${android.platform}</platform>
-                        </sdk>
-                    </configuration>
-                    <extensions>true</extensions>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>2.4</version>
-                <configuration>
-                    <autoVersionSubmodules>true</autoVersionSubmodules>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>2.9.1</version>
-                <configuration>
-                    <failsOnError>false</failsOnError>
-                    <!-- Relative to module directory. -->
-                    <configLocation>../checkstyle.xml</configLocation>
-                    <consoleOutput>true</consoleOutput>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>checkstyle</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>2.9.1</version>
+        <configuration>
+          <failsOnError>true</failsOnError>
+          <!-- Relative to module directory. -->
+          <configLocation>../checkstyle.xml</configLocation>
+          <consoleOutput>true</consoleOutput>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>verify</phase>
+            <goals>
+              <goal>checkstyle</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>
