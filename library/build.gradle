@@ -1,0 +1,121 @@
+apply plugin: 'android-library'
+apply plugin: 'checkstyle'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+group = 'com.f2prateek.progressbutton'
+archivesBaseName = 'progressbutton'
+
+android {
+  compileSdkVersion 18
+  buildToolsVersion '18.1.1'
+
+  defaultConfig {
+    minSdkVersion 8
+    targetSdkVersion 18
+  }
+
+  sourceSets {
+    main {
+      manifest.srcFile 'AndroidManifest.xml'
+      java.srcDirs = ['src']
+      res.srcDirs = ['res']
+    }
+  }
+}
+
+task apklib(type: Zip) {
+  dependsOn 'packageReleaseJar'
+  appendix = extension = 'apklib'
+
+  from 'AndroidManifest.xml'
+  into('res') {
+    from 'res'
+  }
+  into('src') {
+    from 'src'
+  }
+}
+
+artifacts {
+  archives apklib
+}
+
+signing {
+  sign configurations.archives
+}
+
+if (!hasProperty("sonatypeUsername")) {
+  sonatypeUsername = ""
+}
+if (!hasProperty("sonatypePassword")) {
+  sonatypePassword = ""
+}
+
+uploadArchives {
+  repositories {
+    mavenDeployer {
+      beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+      repository(url: 'https://oss.sonatype.org/service/local/staging/deploy/maven2') {
+        authentication(userName: sonatypeUsername, password: sonatypePassword)
+      }
+      snapshotRepository(url: 'https://oss.sonatype.org/content/repositories/snapshots/') {
+        authentication(userName: sonatypeUsername, password: sonatypePassword)
+      }
+
+      modifyPom(addFilter('aar') { artifact, file -> artifact.name == 'progressbuton'
+      })
+
+      modifyPom(addFilter('apklib') { artifact, file -> artifact.name == 'progressbutton-apklib'
+      })
+    }
+  }
+}
+
+def modifyPom(pom) {
+  pom.project {
+    name 'Progress Button for Android'
+    description 'Custom progress indicator with a tiny footprint'
+    url 'https://github.com/f2prateek/progressbutton'
+
+    scm {
+      url 'scm:git@github.com:f2prateek/progressbutton.git'
+      connection 'scm:git@github.com:f2prateek/progressbutton.git'
+      developerConnection 'scm:git@github.com:f2prateek/progressbutton.git'
+    }
+
+    licenses {
+      license {
+        name 'The Apache Software License, Version 2.0'
+        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+        distribution 'repo'
+      }
+    }
+
+    developers {
+      developer {
+        id 'f2prateek'
+        name 'Prateek Srivastava'
+        url 'http://twitter.com/f2prateek'
+      }
+    }
+  }
+}
+
+checkstyle {
+  configFile project.file('../checkstyle.xml')
+  showViolations true
+}
+
+android.libraryVariants.all { variant ->
+  def name = variant.buildType.name
+
+  def checkstyle = project.tasks.create "checkstyle${name.capitalize()}", Checkstyle
+  checkstyle.dependsOn variant.javaCompile
+  checkstyle.source variant.javaCompile.source
+  checkstyle.classpath = project.fileTree(variant.javaCompile.destinationDir)
+  checkstyle.exclude('**/BuildConfig.java')
+  checkstyle.exclude('**/R.java')
+  project.tasks.getByName("check").dependsOn checkstyle
+}

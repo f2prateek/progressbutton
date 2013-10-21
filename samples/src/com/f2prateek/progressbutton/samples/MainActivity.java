@@ -1,11 +1,32 @@
+/*
+ * Copyright 2013 Prateek Srivastava (@f2prateek)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.f2prateek.progressbutton.samples;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import com.f2prateek.progressbutton.ProgressButton;
+import java.util.ArrayList;
 
 /**
  * Examples.
@@ -18,14 +39,31 @@ import com.f2prateek.progressbutton.ProgressButton;
  * Row 2 : from code (duplicating row 1)
  */
 public class MainActivity extends Activity {
+  // Don't forget that this is offset by 1!
+  ArrayList<ProgressButton> progressButtons = new ArrayList<ProgressButton>(8);
+  SeekBar progressSeekBar;
+
+  Handler handler = new Handler();
+  Runnable progressRunner = new Runnable() {
+    @Override
+    public void run() {
+      if (progress < 100) {
+        progress += 2;
+        progressSeekBar.setProgress(progress);
+        handler.postDelayed(progressRunner, 50);
+      }
+    }
+  };
+  private int progress = 100;
+
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    final ProgressButton progressButton1 = (ProgressButton) findViewById(R.id.pin_progress_1);
-    final ProgressButton progressButton2 = (ProgressButton) findViewById(R.id.pin_progress_2);
-    final ProgressButton progressButton3 = (ProgressButton) findViewById(R.id.pin_progress_3);
-    final ProgressButton progressButton4 = (ProgressButton) findViewById(R.id.pin_progress_4);
+    progressButtons.add((ProgressButton) findViewById(R.id.pin_progress_1));
+    progressButtons.add((ProgressButton) findViewById(R.id.pin_progress_2));
+    progressButtons.add((ProgressButton) findViewById(R.id.pin_progress_3));
+    progressButtons.add((ProgressButton) findViewById(R.id.pin_progress_4));
 
     final LinearLayout container = (LinearLayout) findViewById(R.id.container);
 
@@ -33,7 +71,7 @@ public class MainActivity extends Activity {
      * Default implementation of the {@link ProgressButton}.
      * By default, the {@link ProgressButton} is not clickable, and is unpinned.
      */
-    final ProgressButton progressButton5 = addProgressButton(container);
+    progressButtons.add(addProgressButton(container));
 
     /**
      * A  {@link ProgressButton} that starts pinned, and is not clickable, so it
@@ -41,8 +79,8 @@ public class MainActivity extends Activity {
      * @see ProgressButton#setPinned(boolean)
      * @see View#setClickable(boolean)
      */
-    final ProgressButton progressButton6 = addProgressButton(container);
-    progressButton6.setPinned(true);
+    progressButtons.add(addProgressButton(container));
+    progressButtons.get(5).setPinned(true);
 
     /**
      * A progress button that starts pinned, and is clickable, so it's
@@ -50,10 +88,10 @@ public class MainActivity extends Activity {
      * @see ProgressButton#setPinned(boolean)
      * @see View#setClickable(boolean)
      */
-    final ProgressButton progressButton7 = addProgressButton(container);
-    progressButton7.setPinned(true);
-    progressButton7.setClickable(true);
-    progressButton7.setFocusable(true);
+    progressButtons.add(addProgressButton(container));
+    progressButtons.get(6).setPinned(true);
+    progressButtons.get(6).setClickable(true);
+    progressButtons.get(6).setFocusable(true);
 
     /**
      * An example of how to use style the button in code.
@@ -63,11 +101,11 @@ public class MainActivity extends Activity {
      * @see ProgressButton#setProgressColor(int)
      * @see ProgressButton#setCircleColor(int)
      */
-    final ProgressButton progressButton8 = addProgressButton(container);
-    progressButton8.setProgressColor(getResources().getColor(R.color.holo_green_light));
-    progressButton8.setCircleColor(getResources().getColor(R.color.holo_green_dark));
-    progressButton8.setClickable(true);
-    progressButton8.setFocusable(true);
+    progressButtons.add(addProgressButton(container));
+    progressButtons.get(7).setProgressColor(getResources().getColor(R.color.holo_green_light));
+    progressButtons.get(7).setCircleColor(getResources().getColor(R.color.holo_green_dark));
+    progressButtons.get(7).setClickable(true);
+    progressButtons.get(7).setFocusable(true);
 
     CompoundButton.OnCheckedChangeListener checkedChangeListener =
         new CompoundButton.OnCheckedChangeListener() {
@@ -77,27 +115,18 @@ public class MainActivity extends Activity {
           }
         };
 
-    progressButton1.setOnCheckedChangeListener(checkedChangeListener);
-    progressButton2.setOnCheckedChangeListener(checkedChangeListener);
-    progressButton3.setOnCheckedChangeListener(checkedChangeListener);
-    progressButton4.setOnCheckedChangeListener(checkedChangeListener);
-    progressButton5.setOnCheckedChangeListener(checkedChangeListener);
-    progressButton6.setOnCheckedChangeListener(checkedChangeListener);
-    progressButton7.setOnCheckedChangeListener(checkedChangeListener);
-    progressButton8.setOnCheckedChangeListener(checkedChangeListener);
+    for (ProgressButton progressButton : progressButtons) {
+      progressButton.setOnCheckedChangeListener(checkedChangeListener);
+    }
 
-    SeekBar progressSeekBar = (SeekBar) findViewById(R.id.progress_seek_bar);
+    // Use this seekbar to see the bar at different states
+    progressSeekBar = (SeekBar) findViewById(R.id.progress_seek_bar);
     progressSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
       @Override
       public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        updateProgressButton(progressButton1, seekBar);
-        updateProgressButton(progressButton2, seekBar);
-        updateProgressButton(progressButton3, seekBar);
-        updateProgressButton(progressButton4, seekBar);
-        updateProgressButton(progressButton5, seekBar);
-        updateProgressButton(progressButton6, seekBar);
-        updateProgressButton(progressButton7, seekBar);
-        updateProgressButton(progressButton8, seekBar);
+        for (ProgressButton progressButton : progressButtons) {
+          updateProgressButton(progressButton, seekBar);
+        }
       }
 
       @Override
@@ -109,14 +138,21 @@ public class MainActivity extends Activity {
       }
     });
 
-    updateProgressButton(progressButton1, progressSeekBar);
-    updateProgressButton(progressButton2, progressSeekBar);
-    updateProgressButton(progressButton3, progressSeekBar);
-    updateProgressButton(progressButton4, progressSeekBar);
-    updateProgressButton(progressButton5, progressSeekBar);
-    updateProgressButton(progressButton6, progressSeekBar);
-    updateProgressButton(progressButton7, progressSeekBar);
-    updateProgressButton(progressButton8, progressSeekBar);
+    // Set the initial progress to match the seekbar
+    for (ProgressButton progressButton : progressButtons) {
+      updateProgressButton(progressButton, progressSeekBar);
+    }
+
+    Button progressRunnableButton = (Button) findViewById(R.id.progress_runnable_button);
+    progressRunnableButton.setOnClickListener(new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        Log.d("Progress", "Value is " + progress);
+        if (progress == 100) {
+          progress = 0;
+          progressRunner.run();
+        }
+      }
+    });
   }
 
   /**

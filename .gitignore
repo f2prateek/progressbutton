@@ -57,3 +57,7 @@ classes
 */seed.txt
 notes
 logs
+
+build
+.gradle
+local.properties
