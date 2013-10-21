@@ -26,6 +26,12 @@
       android:progress="66"
       android:max="100"/>
 
+  <Button android:id="@+id/progress_runnable_button"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:text="Runnable progress"/>
+
   <ScrollView
       android:layout_width="match_parent"
       android:layout_height="0dp"
@@ -36,7 +42,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp">
-
 
       <TextView android:layout_width="match_parent"
           android:layout_height="wrap_content"

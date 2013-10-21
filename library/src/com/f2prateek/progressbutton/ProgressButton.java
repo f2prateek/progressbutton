@@ -6,7 +6,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * 	http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -35,9 +35,9 @@ import android.widget.CompoundButton;
  * (the checked state) or unpinned (the unchecked state), and the download
  * progress for this content.
  * <p/>
- * See <a href="http://developer.android.com/design/building-blocks/progress.html#custom-indicators">Android
- * Design: Progress &amp; Activity</a> for more details on this custom
- * indicator.
+ * See
+ * <a href="http://developer.android.com/design/building-blocks/progress.html#custom-indicators">
+ * Android Design: Progress &amp; Activity</a> for more details on this custom indicator.
  * <p/>
  * The example on the website is also the default visual implementation that is provided.
  * By default the button is not clickable (by the user). If you want the user to be able to control
