@@ -30,7 +30,7 @@
   <groupId>com.f2prateek</groupId>
   <artifactId>progressbutton-parent</artifactId>
   <packaging>pom</packaging>
-  <version>1.0.2-SNAPSHOT</version>
+  <version>1.0.3-SNAPSHOT</version>
 
   <name>Android Progress Button (Parent)</name>
   <description>A button that helps with showing progress</description>
@@ -99,7 +99,7 @@
         <plugin>
           <groupId>com.jayway.maven.plugins.android.generation2</groupId>
           <artifactId>android-maven-plugin</artifactId>
-          <version>3.5.1</version>
+          <version>3.7.0</version>
           <configuration>
             <sdk>
               <platform>${android.platform}</platform>
