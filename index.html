@@ -1,82 +1,166 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Progress Button</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A powerful image downloading and caching library for Android">
+        <link href="static/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="static/app.css" rel="stylesheet">
+        <link href="static/app-theme.css" rel="stylesheet">
+        <link href="http://fonts.googleapis.com/css?family=Roboto:400,300italic,100,100italic,300" rel="stylesheet" type="text/css">
+        <!--[if lt IE 9]><script src="static/html5shiv.min.js"></script><![endif]-->
+    </head>
+    <body data-target=".content-nav">
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="span5">
+                        <h1>Progress Button</h1>
+                    </div>
+                    <div class="span7">
+                        <menu>
+                            <ul>
+                                <li><a href="#download" class="menu download">Download <span class="version-tag">Latest</span></a></li>
+                                <li><a href="http://github.com/f2prateek/progressbutton" data-title="View GitHub Project" class="menu github"><img src="static/icon-github.png" alt="GitHub"/></a></li>
+                            </ul>
+                        </menu>
+                    </div>
+                </div>
+            </header>
+            <section id="subtitle">
+                <div class="container">
+                    <div class="row">
+                        <div class="span12">
+                            <h2>A custom progress indicator with a <strong>tiny</strong> footprint for Android</h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="body">
+                <div class="container">
+                    <div class="row">
+                        <div class="span9">
+                            
+                            <h3 id="introduction">Introduction</h3>
+                            <p><code>ProgressButton</code> is a custom progress indicator with a tiny footprint. The default implementation provides a pin progress button as seen on the <a href="https://developer.android.com/design/building-blocks/progress.html#custom-indicators">Android design site</a>.</p>
+                            <p class="screenshot"><img src="static/sample.png" alt="Sample application screenshot."></p>
 
-<p><img src="static/screenshot.png" alt="Sample application Screenshot"></p>
 
-<h3>Introduction</h3>
-
-<p><code>ProgressButton</code> is a custom progress indicator with a tiny footprint. The default implementation provides a pin progress button as seen on the <a href="https://developer.android.com/design/building-blocks/progress.html#custom-indicators">Android design site</a>.</p>
-<p><code>ProgressButton</code> is highly customizable, you can supply your own resoures and progress values.</p>
-
-<p><img src="https://developer.android.com/design/media/progress_activity_custom.png" alt="Pin Progress Button"></p>
-
-<h3>Using ProgressButton</h3>
-<p>Simply define it in your your xml as:</p>
-<pre class="prettyprint">
-&lt;/com.f2prateek.progressbutton.ProgressButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                            <h3 id="usage">Usage</h3>
+                            <h4>XML</h4>
+                            <p>Simply define <code>ProgressButton</code> in your layout files.</p>
+                            <pre class="prettyprint">&lt;com.f2prateek.progressbutton.ProgressButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
 </pre>
+                            <h4>Java</h4>
+                            <p>Instantiate an instance of <code>ProgressButton</code> with a context.</p>
+                            <pre class="prettyprint">ProgressButton button = new ProgressButton(context);</pre>
+                            
+                            <h4>Customize</h4>
+                            <p>ProgressButton is highly customizable. You can supply your own resources to style it and give it a unique look. As a subclass of <a href="https://developer.android.com/reference/android/widget/CompoundButton.html"><code>CompoundButton</code></a>, you can use any if those attributes as well. Custom attributes defined for ProgressButton include:</p>
+                            <ul>
+                                <li><code>progress</code> : The current progress to display as an <code>int</code></li>
+                                <li><code>max</code> : The maximum progress that can be displayed an <code>int</code></li>
+                                <li><code>circleColor</code> : The color to display the progress background</li>
+                                <li><code>progressColor</code> : The color to indicate the progress</li>
+                                <li><code>pinnedDrawable</code> : <code>Drawable</code> displayed when the button is unpinned</li>
+                                <li><code>unpinnedDrawable</code> : <code>Drawable</code> displayed when the button is pinned</li>
+                                <li><code>shadowDrawable</code> : <code>Drawable</code> that acts as the shadow of the button</li>
+                                <li><code>innerSize </code></li>
+                                <li><code>pinned</code> : Whether the button is pinned or not</li>
+                            </ul>
+                            <p class="screenshot"><img src="static/states.png" alt="States"></p>
 
-<p>Optionally, you could manually create the view from your <code>Context</code> as: </p> 
-<pre class="prettyprint">
-ProgressButton button = new ProgressButton(context);
-</pre>
-
-<p><code>ProgressButton</code> is a subclass of <a href="https://developer.android.com/reference/android/widget/CompoundButton.html">CompundButton</a>, so you can use any of it's methods and style attributes as well.</p>
-
-<p>Custom attributes defined for <code>ProgressButton</code>:</p>
-<ul>
-  <li><code>progress</code></li>
-  <li><code>max</code></li>
-  <li><code>circleColor</code></li>
-  <li><code>progressColor</code></li>
-  <li><code>pinnedDrawable</code></li>
-  <li><code>unpinnedDrawable</code></li>
-  <li><code>shadowDrawable</code></li>
-  <li><code>innerSize</code></li>
-  <li><code>pinned</code></li>  
-</ul>
-
-<p>Check out the sample app on <a href="https://play.google.com/store/apps/details?id=com.f2prateek.progressbutton.samples">Google Play</a> for an example. The source is available in the <code>samples</code> folder of the repository.</p> 
-
-<h3>Add ProgressButton to your build</h3>
-
-<p>Due the the theming capabilities of the library, it must be referenced as a library project.</p>
-
-<p>The library is also available through maven.</p>
-<pre class="prettyprint">
-&lt;dependencies>
-  &lt;dependency>
+                            <p>Look under the <a href="https://github.com/f2prateek/progressbutton/tree/master/samples"><code>/samples</code></a> folder to see an example of how to use these attributes. The corresponding app is available on the <a href="https://play.google.com/store/apps/details?id=com.f2prateek.progressbutton.samples">Play Store</a>.</p>
+                            
+                            
+                            <h3 id="download">Download</h3>
+                            <p>The source code to <code>ProgressButton</code>, its samples, and this website is <a href="http://github.com/f2prateek/progressbutton">available on GitHub</a>.</p>
+                            
+                            <h4>Maven</h4>
+                            <pre class="prettyprint">&lt;dependency>
     &lt;groupId>com.f2prateek&lt;/groupId>
     &lt;artifactId>progressbutton&lt;/artifactId>
-    &lt;version>${progressbutton.version}&lt;/version>
-    &lt;type>apklib&lt;/type>
-  &lt;/dependency>
-&lt;/dependencies>
+    &lt;version><span class="version pln"><em>(insert latest version)</em></span>&lt;/version>
+&lt;/dependency></pre>
+                            <h4>Gradle</h4>
+                            <pre class="prettyprint">compile 'com.f2prateek:progressbutton:<span class="version pln"><em>(insert latest version)</em></span>.0@aar'
 </pre>
-
-<h3>Credits</h3>
-<p>Developed by <a href="https://twitter.com/f2prateek">Prateek Srivastava</a>.</p>
-<p>Thanks to <a href="https://plus.google.com/+RomanNurik/posts/TbCkqQN4AEk">Roman Nurik</a> for providing the implementation that this library is based on.</p>
-<p>Thanks to <a href="https://github.com/square">Square</a> for the website template.</p>
-
-<h3>License</h3>
-
-<pre>
-Copyright 2013 Prateek Srivastava
+                            
+                            <h3 id="contributing">Contributing</h3>
+                            <p>If you would like to contribute code you can do so through GitHub by forking the repository and sending a pull request.</p>
+                            <p>When submitting code, please make every effort to follow existing conventions and style in order to keep the code as readable as possible. Please also make sure your code compiles by running <code>mvn clean verify</code>.</p>
+                            
+                            <h3 id="license">License</h3>
+                            <pre>Copyright 2013 Prateek Srivastava
 Copyright 2012 Roman Nurik
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-   http://www.apache.org/licenses/LICENSE-2.0
+http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
-limitations under the License.
-</pre>
+limitations under the License.</pre>
+                        </div>
+                        <div class="span3">
+                            <div class="content-nav" data-spy="affix" data-offset-top="80">
+                                <ul class="nav nav-tabs nav-stacked primary">
+                                    <li><a href="#introduction">Introduction</a></li>
+                                    <li><a href="#usage">Features</a></li>
+                                    <li><a href="#download">Download</a></li>
+                                    <li><a href="#license">License</a></li>
+                                </ul>
+                                <ul class="nav nav-pills nav-stacked secondary">
+                                    <li><a href="javadoc/index.html">Javadoc</a></li>
+                                    <li><a href="https://twitter.com/f2prateek">Twitter</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+            <script src="static/bootstrap.min.js"></script>
+            <script src="static/jquery.smooth-scroll.min.js"></script>
+            <script src="static/jquery-maven-artifact.min.js"></script>
+            <script src="static/prettify.js"></script>
+            <script type="text/javascript">
+                $(function() {
+                    // Syntax highlight code blocks.
+                    prettyPrint();
+                    
+                    // Spy on scroll position for real-time updating of current section.
+                    $('body').scrollspy();
+                    
+                    // Use smooth-scroll for internal links.
+                    $('a').smoothScroll();
+                    
+                    // Enable tooltips on the header nav image items.
+                    $('.menu').tooltip({
+                        placement: 'bottom',
+                        trigger: 'hover',
+                        container: 'body',
+                        delay: {
+                            show: 500,
+                            hide: 0
+                        }
+                    });
+                    
+                    // Look up the latest version of the library.
+                    $.fn.artifactVersion('com.f2prateek', 'progressbutton', function(version, url) {
+                        $('.version').text(version);
+                        $('.version-tag').text('v' + version);
+                        $('.version-href').attr('href', url);
+                    });
+                });
+            </script>
+        </body>
+    </html>
+    
