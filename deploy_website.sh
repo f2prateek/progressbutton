@@ -1,18 +1,18 @@
 #!/bin/bash
-#
-# Deploys the current Dagger website to the gh-pages branch of the GitHub
-# repository. To test the site locally before deploying run `jekyll --server`
-# in the website/ directory.
 
 set -ex
 
-DIR=temp-progressbutton-clone
+REPO="git@github.com:f2prateek/progressbutton.git"
+GROUP_ID="com.f2prateek"
+ARTIFACT_ID="progressbutton"
+
+DIR=temp-clone
 
 # Delete any existing temporary website clone
 rm -rf $DIR
 
 # Clone the current repo into temp folder
-git clone git@github.com:f2prateek/progressbutton.git $DIR
+git clone $REPO $DIR
 
 # Move working directory into temp folder
 cd $DIR
@@ -25,6 +25,12 @@ rm -rf *
 
 # Copy website files from real repo
 cp -R ../website/* .
+
+# Download the latest javadoc
+curl -L "http://repository.sonatype.org/service/local/artifact/maven/redirect?r=central-proxy&g=$GROUP_ID&a=$ARTIFACT_ID&v=LATEST&c=javadoc" > javadoc.zip
+mkdir javadoc
+unzip javadoc.zip -d javadoc
+rm javadoc.zip
 
 # Stage all files in git and create a commit
 git add .
