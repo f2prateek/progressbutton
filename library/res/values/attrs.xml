@@ -29,7 +29,7 @@
     <attr name="shadowDrawable" format="reference"/>
     <attr name="innerSize" format="dimension"/>
     <attr name="pinned" format="boolean"/>
-    <attr name="android:selectableItemBackground"/>
+    <attr name="android:background"/>
     <attr name="android:clickable"/>
     <attr name="android:focusable"/>
   </declare-styleable>

@@ -128,7 +128,7 @@ public class ProgressButton extends CompoundButton {
     setClickable(a.getBoolean(R.styleable.ProgressButton_android_clickable, false));
     setFocusable(a.getBoolean(R.styleable.ProgressButton_android_focusable, false));
     setBackgroundDrawable(
-        a.getDrawable(R.styleable.ProgressButton_android_selectableItemBackground));
+        a.getDrawable(R.styleable.ProgressButton_android_background));
 
     a.recycle();
 
