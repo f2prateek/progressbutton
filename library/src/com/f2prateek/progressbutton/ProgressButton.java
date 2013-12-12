@@ -132,7 +132,7 @@ public class ProgressButton extends CompoundButton {
 
     a.recycle();
 
-    mDrawableSize = mShadowDrawable.getIntrinsicWidth();
+    mDrawableSize = mInnerSize;//mShadowDrawable.getIntrinsicWidth();
 
     mCirclePaint = new Paint();
     mCirclePaint.setColor(circleColor);
@@ -203,6 +203,7 @@ public class ProgressButton extends CompoundButton {
   /** Set the drawable that is displayed when the item is pinned. */
   public void setPinnedDrawable(Drawable pinnedDrawable) {
     mPinnedDrawable = pinnedDrawable;
+    mDrawableSize = mInnerSize = mPinnedDrawable.getIntrinsicWidth();
     invalidate();
   }
 
@@ -214,6 +215,7 @@ public class ProgressButton extends CompoundButton {
   /** Set the drawable that is displayed when the item is unpinned. */
   public void setUnpinnedDrawable(Drawable unpinnedDrawable) {
     mUnpinnedDrawable = unpinnedDrawable;
+    mDrawableSize = mInnerSize = mUnpinnedDrawable.getIntrinsicWidth();
     invalidate();
   }
 
