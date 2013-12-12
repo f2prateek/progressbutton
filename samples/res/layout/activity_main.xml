@@ -49,15 +49,27 @@
           android:baselineAligned="false">
         <com.f2prateek.progressbutton.ProgressButton
             android:id="@+id/pin_progress_1"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             style="@style/ProgressButton.1"/>
         <com.f2prateek.progressbutton.ProgressButton
             android:id="@+id/pin_progress_2"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             style="@style/ProgressButton.2"/>
         <com.f2prateek.progressbutton.ProgressButton
             android:id="@+id/pin_progress_3"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             style="@style/ProgressButton.Clickable.3"/>
         <com.f2prateek.progressbutton.ProgressButton
             android:id="@+id/pin_progress_4"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             style="@style/ProgressButton.Clickable.4"/>
       </LinearLayout>
 
