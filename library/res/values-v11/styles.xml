@@ -17,22 +17,9 @@
 
 <resources>
 
-  <style name="ProgressButton"/>
-
   <!-- Base theme for the Progress button. -->
-  <style name="ProgressButton.Pin">
-    <item name="progress">0</item>
-    <item name="max">100</item>
-    <item name="circleColor">@color/progress_default_circle_color</item>
-    <item name="progressColor">@color/progress_default_progress_color</item>
-    <item name="pinnedDrawable">@drawable/pin_progress_pinned</item>
-    <item name="unpinnedDrawable">@drawable/pin_progress_unpinned</item>
-    <item name="shadowDrawable">@drawable/pin_progress_shadow</item>
-    <item name="innerSize">@dimen/progress_inner_size</item>
-    <item name="pinned">false</item>
+  <style name="ProgressButton.Pin.Compat">
     <item name="android:background">?android:selectableItemBackground</item>
-    <item name="android:clickable">false</item>
-    <item name="android:focusable">false</item>
   </style>
 
 </resources>

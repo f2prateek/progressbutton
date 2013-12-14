@@ -30,9 +30,13 @@
     <item name="shadowDrawable">@drawable/pin_progress_shadow</item>
     <item name="innerSize">@dimen/progress_inner_size</item>
     <item name="pinned">false</item>
-    <item name="android:background">@android:drawable/list_selector_background</item>
     <item name="android:clickable">false</item>
     <item name="android:focusable">false</item>
+  </style>
+
+  <!-- Base theme for the Progress button. -->
+  <style name="ProgressButton.Pin.Compat">
+    <item name="android:background">@android:drawable/list_selector_background</item>
   </style>
 
 </resources>
