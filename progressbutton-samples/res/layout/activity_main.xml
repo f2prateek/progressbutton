@@ -41,7 +41,7 @@
       <TextView android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:padding="8dp"
-          android:text="Via XML:"/>
+          android:text="@string/via_xml"/>
 
       <LinearLayout android:orientation="horizontal"
           android:layout_width="match_parent"
@@ -76,7 +76,7 @@
       <TextView android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:padding="8dp"
-          android:text="Via Code :"/>
+          android:text="@string/via_code"/>
 
       <LinearLayout android:orientation="horizontal"
           android:id="@+id/container"
