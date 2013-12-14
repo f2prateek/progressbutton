@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.f2prateek</groupId>
+    <groupId>com.f2prateek.progressbutton</groupId>
     <artifactId>progressbutton-parent</artifactId>
     <version>1.0.4-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>

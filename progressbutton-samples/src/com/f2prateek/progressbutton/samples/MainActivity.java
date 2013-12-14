@@ -38,6 +38,7 @@ public class MainActivity extends Activity {
     /**
      * A  {@link ProgressButton} that starts pinned, and is not clickable, so it
      * stays pinned.
+     *
      * @see ProgressButton#setPinned(boolean)
      * @see View#setClickable(boolean)
      */
@@ -128,6 +129,9 @@ public class MainActivity extends Activity {
     updatePinProgressContentDescription(progressButton);
   }
 
+  /**
+   * Helper method to update the progressButton's content description.
+   */
   private void updatePinProgressContentDescription(ProgressButton button) {
     int progress = button.getProgress();
     if (progress <= 0) {
