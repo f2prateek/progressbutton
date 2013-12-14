@@ -6,6 +6,9 @@ branches:
   except:
     - gh-pages
 
+notifications:
+  email: false
+
 before_install:
   # Install base Android SDK
   - sudo apt-get update -qq
