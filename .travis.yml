@@ -28,7 +28,7 @@ before_install:
   # For a full list, run `android list sdk -a --extended`
   # Other relevant API's
   - echo yes | android update sdk --filter platform-tools --no-ui --force > /dev/null
-  - echo yes | android update sdk --filter android-16 --no-ui --force > /dev/null
+  - echo yes | android update sdk --filter android-19 --no-ui --force > /dev/null
 
 install: mvn clean install -DskipTests=true
 
