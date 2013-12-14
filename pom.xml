@@ -9,7 +9,7 @@
     <version>7</version>
   </parent>
 
-  <groupId>com.f2prateek</groupId>
+  <groupId>com.f2prateek.progressbutton</groupId>
   <artifactId>progressbutton-parent</artifactId>
   <packaging>pom</packaging>
   <version>1.0.4-SNAPSHOT</version>
@@ -20,8 +20,8 @@
   <inceptionYear>2012</inceptionYear>
 
   <modules>
-    <module>library</module>
-    <module>samples</module>
+    <module>progressbutton</module>
+    <module>progressbutton-samples</module>
   </modules>
 
   <scm>
