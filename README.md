@@ -1,4 +1,4 @@
-ProgressButton
+ProgressButton [![Build Status](https://travis-ci.org/f2prateek/progressbutton.png)](https://travis-ci.org/f2prateek/progressbutton)
 ==============
 
 ProgressButton is a custom progress indicator with a tiny footprint.

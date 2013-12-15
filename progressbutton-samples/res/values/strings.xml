@@ -11,4 +11,7 @@
   <string name="content_desc_unpinned_downloaded">Temporarily downloaded</string>
   <string name="content_desc_unpinned_downloading">Temporarily downloading</string>
   <string name="content_desc_unpinned_not_downloaded">Not downloaded</string>
+
+  <string name="via_xml">Via XML:</string>
+  <string name="via_code">Via Code:</string>
 </resources>

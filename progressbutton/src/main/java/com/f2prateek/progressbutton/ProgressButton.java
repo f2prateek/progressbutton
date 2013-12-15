@@ -90,12 +90,12 @@ public class ProgressButton extends CompoundButton {
    *
    * @param context the application environment
    * @param attrs Attribute Set provided
-   * @param defStyle unused.
+   * @param defStyle The style resource to pull from
    */
   private void init(Context context, AttributeSet attrs, int defStyle) {
     // Attribute initialization
-    final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ProgressButton,
-        R.attr.progressButtonStyle, R.style.ProgressButton_Pin_Compat);
+    final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ProgressButton, defStyle,
+        R.style.ProgressButton_Pin_Compat);
     final Resources res = getResources();
 
     mProgress = a.getInteger(R.styleable.ProgressButton_progress, 0);
@@ -127,8 +127,7 @@ public class ProgressButton extends CompoundButton {
     setChecked(a.getBoolean(R.styleable.ProgressButton_pinned, false));
     setClickable(a.getBoolean(R.styleable.ProgressButton_android_clickable, false));
     setFocusable(a.getBoolean(R.styleable.ProgressButton_android_focusable, false));
-    setBackgroundDrawable(
-        a.getDrawable(R.styleable.ProgressButton_android_background));
+    setBackgroundDrawable(a.getDrawable(R.styleable.ProgressButton_android_background));
 
     a.recycle();
 
@@ -150,6 +149,9 @@ public class ProgressButton extends CompoundButton {
 
   /** Sets the maximum progress value. Defaults to 100. */
   public void setMax(int max) {
+    if (max <= 0) {
+      throw new IllegalArgumentException(String.format("Max (%d) must be > 0", max));
+    }
     mMax = max;
     invalidate();
   }
