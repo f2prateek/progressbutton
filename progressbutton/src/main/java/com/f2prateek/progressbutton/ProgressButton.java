@@ -149,6 +149,9 @@ public class ProgressButton extends CompoundButton {
 
   /** Sets the maximum progress value. Defaults to 100. */
   public void setMax(int max) {
+    if (max <= 0) {
+      throw new IllegalArgumentException(String.format("Max (%d) must be > 0", max));
+    }
     mMax = max;
     invalidate();
   }
