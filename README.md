@@ -3,18 +3,33 @@ ProgressButton [![Build Status](https://travis-ci.org/f2prateek/progressbutton.p
 
 ProgressButton is a custom progress indicator with a tiny footprint.
 The default implementation provides a pin progress button as seen on the [Android design site][1].
-Based on the sample code provided by [Roman Nurik][2] on [Google Code][3].
-
 ![Pin Progress Button Android developer][4]
 
-For more information, see the [website][5].
-Try out the sample application in the samples/ folder of the project.
+Based on the sample code provided by [Roman Nurik][2] on [Google Code][3].
+For more information, refer to the [website][5].
+Try out the sample application in the `progressbutton-samples/` folder of the project.
 
 Developed By
 ============
 
 * Prateek Srivastava - <f2prateek@gmail.com>
 
+Download
+============
+
+TheGrab it via Maven:
+
+```xml
+<dependency>
+  <groupId>com.f2prateek.progressbutton</groupId>
+  <artifactId>progressbutton</artifactId>
+  <version>(insert latest version)</version>
+</dependency>
+```
+or Gradle:
+```groovy
+compile 'com.f2prateek.progressbutton:progressbutton:(insert latest version)@aar'
+```
 
 License
 =======
