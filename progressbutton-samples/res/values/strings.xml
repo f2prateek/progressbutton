@@ -14,4 +14,6 @@
 
   <string name="via_xml">Via XML:</string>
   <string name="via_code">Via Code:</string>
+  <string name="start_animating">Start Animating</string>
+  <string name="stop_animating">Stop Animating</string>
 </resources>

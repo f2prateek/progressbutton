@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
+import android.widget.ToggleButton;
 import com.f2prateek.progressbutton.ProgressButton;
 
 /**
@@ -26,6 +27,9 @@ public class MainActivity extends Activity {
     final ProgressButton progressButton2 = (ProgressButton) findViewById(R.id.pin_progress_2);
     final ProgressButton progressButton3 = (ProgressButton) findViewById(R.id.pin_progress_3);
     final ProgressButton progressButton4 = (ProgressButton) findViewById(R.id.pin_progress_4);
+
+    final ProgressButton progressButton9 = (ProgressButton) findViewById(R.id.pin_progress_9);
+    final ProgressButton progressButton10 = (ProgressButton) findViewById(R.id.pin_progress_10);
 
     final LinearLayout container = (LinearLayout) findViewById(R.id.container);
 
@@ -99,6 +103,8 @@ public class MainActivity extends Activity {
         updateProgressButton(progressButton6, seekBar);
         updateProgressButton(progressButton7, seekBar);
         updateProgressButton(progressButton8, seekBar);
+        updateProgressButton(progressButton9, seekBar);
+        updateProgressButton(progressButton10, seekBar);
       }
 
       @Override
@@ -118,6 +124,26 @@ public class MainActivity extends Activity {
     updateProgressButton(progressButton6, progressSeekBar);
     updateProgressButton(progressButton7, progressSeekBar);
     updateProgressButton(progressButton8, progressSeekBar);
+    updateProgressButton(progressButton9, progressSeekBar);
+    updateProgressButton(progressButton10, progressSeekBar);
+
+    final ToggleButton toggleButton = (ToggleButton) findViewById(R.id.toggle_button);
+    toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+      @Override public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if (isChecked) {
+          // Here, I explicitly call startAnimating
+          // If you want a  progress button that starts in an animating state,
+          // use the `animating` attribute via xml and set it to true
+          // You can control the animation speed, width of the strip that is displayed and
+          // animation delay
+          progressButton9.startAnimating();
+          progressButton10.startAnimating();
+        } else {
+          progressButton9.stopAnimating();
+          progressButton10.stopAnimating();
+        }
+      }
+    });
   }
 
   /**

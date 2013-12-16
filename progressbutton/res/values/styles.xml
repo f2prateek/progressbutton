@@ -30,6 +30,10 @@
     <item name="shadowDrawable">@drawable/pin_progress_shadow</item>
     <item name="innerSize">@dimen/progress_inner_size</item>
     <item name="pinned">false</item>
+    <item name="animating">false</item>
+    <item name="animationSpeed">1</item>
+    <item name="animationDelay">50</item>
+    <item name="animationStripWidth">6</item>
     <item name="android:clickable">false</item>
     <item name="android:focusable">false</item>
   </style>

@@ -25,6 +25,8 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
+import android.os.Message;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -50,9 +52,9 @@ import android.widget.CompoundButton;
 public class ProgressButton extends CompoundButton {
 
   /** The maximum progress. Defaults to 100. */
-  private int mMax;
+  private int mMax = 100;
   /** The current progress. Defaults to 0. */
-  private int mProgress;
+  private int mProgress = 0;
   /** The drawable used as the shadow. */
   private Drawable mShadowDrawable;
   /** The drawable displayed when the user unpins an item. */
@@ -61,8 +63,19 @@ public class ProgressButton extends CompoundButton {
   private Drawable mPinnedDrawable;
   /** The paint for the circle. */
   private Paint mCirclePaint;
+  /** True if the view is animating. Defaults to false. */
+  private boolean mAnimating = false;
+  /** Animation speed. Defaults to 1. */
+  private int mAnimationSpeed = 1;
+  /** Delay between animation frames. Defaults to 50. */
+  private int mAnimationDelay = 50;
+  /** Width of the animation strip. Defaults to 6. */
+  private int mAnimationStripWidth = 6;
+  /** Internal variable to track animation state. */
+  private int mAnimationProgress = 0;
+
   /**
-   * The paint tp show the progress.
+   * The paint to show the progress.
    *
    * @see #mProgress
    */
@@ -71,6 +84,24 @@ public class ProgressButton extends CompoundButton {
   private RectF mTempRectF = new RectF();
   private int mDrawableSize;
   private int mInnerSize;
+
+  private Handler mAnimationHandler = new Handler() {
+    /**
+     * This is the code that will increment the progress variable
+     * and so spin the wheel
+     */
+    @Override
+    public void handleMessage(Message msg) {
+      if (mAnimating) {
+        invalidate();
+        mAnimationProgress += mAnimationSpeed;
+        if (mAnimationProgress > mMax) {
+          mAnimationProgress = mProgress;
+        }
+        mAnimationHandler.sendEmptyMessageDelayed(0, mAnimationDelay);
+      }
+    }
+  };
 
   public ProgressButton(Context context) {
     this(context, null);
@@ -98,8 +129,8 @@ public class ProgressButton extends CompoundButton {
         R.style.ProgressButton_Pin_Compat);
     final Resources res = getResources();
 
-    mProgress = a.getInteger(R.styleable.ProgressButton_progress, 0);
-    mMax = a.getInteger(R.styleable.ProgressButton_max, 100);
+    mProgress = a.getInteger(R.styleable.ProgressButton_progress, mProgress);
+    mMax = a.getInteger(R.styleable.ProgressButton_max, mMax);
 
     int circleColor = res.getColor(R.color.progress_default_circle_color);
     circleColor = a.getColor(R.styleable.ProgressButton_circleColor, circleColor);
@@ -121,13 +152,19 @@ public class ProgressButton extends CompoundButton {
     mShadowDrawable = res.getDrawable(shadowDrawable);
     mShadowDrawable.setCallback(this);
 
+    mInnerSize = res.getDimensionPixelSize(R.dimen.progress_inner_size);
     mInnerSize = a.getDimensionPixelSize(R.styleable.ProgressButton_innerSize, mInnerSize);
 
-    mInnerSize = res.getDimensionPixelSize(R.dimen.progress_inner_size);
     setChecked(a.getBoolean(R.styleable.ProgressButton_pinned, false));
     setClickable(a.getBoolean(R.styleable.ProgressButton_android_clickable, false));
     setFocusable(a.getBoolean(R.styleable.ProgressButton_android_focusable, false));
     setBackgroundDrawable(a.getDrawable(R.styleable.ProgressButton_android_background));
+
+    mAnimating = a.getBoolean(R.styleable.ProgressButton_animating, mAnimating);
+    mAnimationSpeed = a.getInteger(R.styleable.ProgressButton_animationSpeed, mAnimationSpeed);
+    mAnimationDelay = a.getInteger(R.styleable.ProgressButton_animationDelay, mAnimationDelay);
+    mAnimationStripWidth =
+        a.getInteger(R.styleable.ProgressButton_animationStripWidth, mAnimationStripWidth);
 
     a.recycle();
 
@@ -140,6 +177,10 @@ public class ProgressButton extends CompoundButton {
     mProgressPaint = new Paint();
     mProgressPaint.setColor(progressColor);
     mProgressPaint.setAntiAlias(true);
+
+    if (mAnimating) {
+      startAnimating();
+    }
   }
 
   /** Returns the maximum progress value. */
@@ -150,7 +191,8 @@ public class ProgressButton extends CompoundButton {
   /** Sets the maximum progress value. Defaults to 100. */
   public void setMax(int max) {
     if (max <= 0 || max < mProgress) {
-      throw new IllegalArgumentException(String.format("Max (%d) must be > 0 and >= %d", max, mProgress));
+      throw new IllegalArgumentException(
+          String.format("Max (%d) must be > 0 and >= %d", max, mProgress));
     }
     mMax = max;
     invalidate();
@@ -256,6 +298,56 @@ public class ProgressButton extends CompoundButton {
     setChecked(pinned);
   }
 
+  /** Returns true if the button is animating. */
+  public boolean isAnimating() {
+    return mAnimating;
+  }
+
+  /** Get the animation speed. */
+  public int getAnimationSpeed() {
+    return mAnimationSpeed;
+  }
+
+  /** Get the animation delay. */
+  public int getAnimationDelay() {
+    return mAnimationDelay;
+  }
+
+  /** Get the width of the animation strip. */
+  public int getAnimationStripWidth() {
+    return mAnimationStripWidth;
+  }
+
+  /** Set the animation speed. This speed controls what progress we jump by in the animation. */
+  public void setAnimationSpeed(int animationSpeed) {
+    mAnimationSpeed = animationSpeed;
+  }
+
+  /** Set the delay of the animation. This controls the duration between each frame. */
+  public void setAnimationDelay(int animationDelay) {
+    mAnimationDelay = animationDelay;
+  }
+
+  /** Set the width of the animation strip. */
+  public void setAnimationStripWidth(int animationStripWidth) {
+    mAnimationStripWidth = animationStripWidth;
+  }
+
+  /** Start animating the button. */
+  public void startAnimating() {
+    mAnimating = true;
+    mAnimationProgress = mProgress;
+    mAnimationHandler.sendEmptyMessage(0);
+  }
+
+  /** Stop animating the button. */
+  public void stopAnimating() {
+    mAnimating = false;
+    mAnimationProgress = mProgress;
+    mAnimationHandler.removeMessages(0);
+    invalidate();
+  }
+
   @Override
   protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
     setMeasuredDimension(resolveSize(mDrawableSize, widthMeasureSpec),
@@ -288,6 +380,11 @@ public class ProgressButton extends CompoundButton {
 
     canvas.drawArc(mTempRectF, 0, 360, true, mCirclePaint);
     canvas.drawArc(mTempRectF, -90, 360 * mProgress / mMax, true, mProgressPaint);
+
+    if (mAnimating) {
+      canvas.drawArc(mTempRectF, -90 + (360 * mAnimationProgress / mMax), mAnimationStripWidth,
+          true, mProgressPaint);
+    }
 
     Drawable iconDrawable = isChecked() ? mPinnedDrawable : mUnpinnedDrawable;
     iconDrawable.setBounds(mTempRect);
