@@ -36,6 +36,9 @@ public class ProgressButtonTest {
 
     button.setPinned(true);
     assertThat(button.isChecked()).isEqualTo(button.isPinned()).isTrue();
+
+    button.setChecked(false);
+    assertThat(button.isChecked()).isEqualTo(button.isPinned()).isFalse();
   }
 
   @Test
