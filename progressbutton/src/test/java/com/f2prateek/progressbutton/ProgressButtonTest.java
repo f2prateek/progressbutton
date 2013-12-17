@@ -1,6 +1,8 @@
 package com.f2prateek.progressbutton;
 
 import android.app.Activity;
+import android.os.Parcelable;
+import android.widget.CompoundButton;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,6 +10,9 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 
 import static org.fest.assertions.api.Assertions.assertThat;
+import static org.fest.assertions.api.Fail.fail;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 @RunWith(RobolectricTestRunner.class)
 public class ProgressButtonTest {
@@ -32,6 +37,9 @@ public class ProgressButtonTest {
 
     button.setPinned(true);
     assertThat(button.isChecked()).isEqualTo(button.isPinned()).isTrue();
+
+    button.setChecked(false);
+    assertThat(button.isChecked()).isEqualTo(button.isPinned()).isFalse();
   }
 
   @Test
@@ -54,6 +62,12 @@ public class ProgressButtonTest {
   }
 
   @Test
+  public void testValidProgressValue() throws Exception {
+    button.setProgress(50);
+    assertThat(button.getProgress()).isEqualTo(50);
+  }
+
+  @Test
   public void testValidProgressValueMax() throws Exception {
     button.setProgress(100);
     assertThat(button.getProgress()).isEqualTo(100);
@@ -61,57 +75,84 @@ public class ProgressButtonTest {
 
   @Test
   public void testInvalidProgressValue() throws Exception {
-    Exception exception = null;
     try {
       button.setProgress(101);
-    } catch (Exception e) {
-      exception = e;
+      fail("Setting progress > max should throw");
+    } catch (IllegalArgumentException e) {
     }
-
-    assertThat(exception).isNotNull()
-        .isInstanceOf(IllegalArgumentException.class)
-        .hasMessage("Progress (101) must be between 0 and 100");
   }
 
   @Test
   public void testAnotherInvalidProgressValue() throws Exception {
-    Exception exception = null;
     try {
       button.setProgress(-1);
-    } catch (Exception e) {
-      exception = e;
+      fail("Setting progress < 0 should throw");
+    } catch (IllegalArgumentException e) {
     }
-
-    assertThat(exception).isNotNull()
-        .isInstanceOf(IllegalArgumentException.class)
-        .hasMessage("Progress (-1) must be between 0 and 100");
   }
 
   @Test
   public void testSetMaxToUnderZero() throws Exception {
-    Exception exception = null;
     try {
       button.setMax(-1);
-    } catch (Exception e) {
-      exception = e;
+      fail("Setting max<=0 should throw");
+    } catch (IllegalArgumentException e) {
     }
-
-    assertThat(exception).isNotNull()
-        .isInstanceOf(IllegalArgumentException.class)
-        .hasMessage("Max (-1) must be > 0");
   }
 
   @Test
   public void testSetMaxToZero() throws Exception {
-    Exception exception = null;
     try {
       button.setMax(0);
-    } catch (Exception e) {
-      exception = e;
+      fail("Setting max<=0 should throw");
+    } catch (IllegalArgumentException e) {
     }
-
-    assertThat(exception).isNotNull()
-        .isInstanceOf(IllegalArgumentException.class)
-        .hasMessage("Max (0) must be > 0");
   }
+
+  @Test
+  public void testOnCheckedChangeListenerIsNotified() throws Exception {
+    CompoundButton.OnCheckedChangeListener publisher =
+        mock(CompoundButton.OnCheckedChangeListener.class);
+    button.setOnCheckedChangeListener(publisher);
+    button.setPinned(true);
+    verify(publisher).onCheckedChanged(button, true);
+    button.setPinned(false);
+    verify(publisher).onCheckedChanged(button, false);
+  }
+
+  @Test
+  public void testOnCheckedChangeListenerIsNotifiedOnToggle() throws Exception {
+    button.setPinned(true);
+    CompoundButton.OnCheckedChangeListener publisher =
+        mock(CompoundButton.OnCheckedChangeListener.class);
+    button.setOnCheckedChangeListener(publisher);
+    button.toggle();
+    verify(publisher).onCheckedChanged(button, false);
+  }
+
+  @Test
+  public void testOnSaveInstanceState() throws Exception {
+    button.setProgress(72);
+    button.setMax(842);
+    final Parcelable parcelable = button.onSaveInstanceState();
+    button.setProgress(2);
+    button.setMax(50);
+    assertThat(button.getProgress()).isEqualTo(2);
+    assertThat(button.getMax()).isEqualTo(50);
+
+    button.onRestoreInstanceState(parcelable);
+    assertThat(button.getProgress()).isEqualTo(72);
+    assertThat(button.getMax()).isEqualTo(842);
+  }
+
+  @Test
+  public void testSettingMaxLessThanProgress() throws Exception {
+    button.setProgress(25);
+    try {
+      button.setMax(10);
+      fail("Setting max<progress should throw");
+    } catch (IllegalArgumentException e) {
+    }
+  }
+
 }
