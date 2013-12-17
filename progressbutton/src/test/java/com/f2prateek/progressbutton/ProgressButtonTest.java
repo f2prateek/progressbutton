@@ -1,6 +1,7 @@
 package com.f2prateek.progressbutton;
 
 import android.app.Activity;
+import android.widget.CompoundButton;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,6 +9,8 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 
 import static org.fest.assertions.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 @RunWith(RobolectricTestRunner.class)
 public class ProgressButtonTest {
@@ -113,5 +116,26 @@ public class ProgressButtonTest {
     assertThat(exception).isNotNull()
         .isInstanceOf(IllegalArgumentException.class)
         .hasMessage("Max (0) must be > 0");
+  }
+
+  @Test
+  public void testOnCheckedChangeListenerIsNotified() throws Exception {
+    CompoundButton.OnCheckedChangeListener publisher =
+        mock(CompoundButton.OnCheckedChangeListener.class);
+    button.setOnCheckedChangeListener(publisher);
+    button.setPinned(true);
+    verify(publisher).onCheckedChanged(button, true);
+    button.setPinned(false);
+    verify(publisher).onCheckedChanged(button, false);
+  }
+
+  @Test
+  public void testOnCheckedChangeListenerIsNotifiedOnToggle() throws Exception {
+    button.setPinned(true);
+    CompoundButton.OnCheckedChangeListener publisher =
+        mock(CompoundButton.OnCheckedChangeListener.class);
+    button.setOnCheckedChangeListener(publisher);
+    button.toggle();
+    verify(publisher).onCheckedChanged(button, false);
   }
 }
