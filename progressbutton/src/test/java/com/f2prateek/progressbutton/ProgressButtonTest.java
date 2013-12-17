@@ -1,6 +1,7 @@
 package com.f2prateek.progressbutton;
 
 import android.app.Activity;
+import android.os.Parcelable;
 import android.widget.CompoundButton;
 import org.junit.Before;
 import org.junit.Test;
@@ -137,5 +138,20 @@ public class ProgressButtonTest {
     button.setOnCheckedChangeListener(publisher);
     button.toggle();
     verify(publisher).onCheckedChanged(button, false);
+  }
+
+  @Test
+  public void testOnSaveInstanceState() throws Exception {
+    button.setProgress(72);
+    button.setMax(842);
+    final Parcelable parcelable = button.onSaveInstanceState();
+    button.setProgress(2);
+    button.setMax(50);
+    assertThat(button.getProgress()).isEqualTo(2);
+    assertThat(button.getMax()).isEqualTo(50);
+
+    button.onRestoreInstanceState(parcelable);
+    assertThat(button.getProgress()).isEqualTo(72);
+    assertThat(button.getMax()).isEqualTo(842);
   }
 }
