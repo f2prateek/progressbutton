@@ -6,7 +6,7 @@
   <parent>
     <groupId>com.f2prateek.progressbutton</groupId>
     <artifactId>progressbutton-parent</artifactId>
-    <version>2.0.0</version>
+    <version>2.0.1-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
