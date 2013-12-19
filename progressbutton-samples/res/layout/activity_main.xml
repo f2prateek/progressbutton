@@ -84,6 +84,31 @@
           android:layout_height="wrap_content"
           android:baselineAligned="false"/>
 
+      <ToggleButton
+          android:id="@+id/toggle_button"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textOff="@string/start_animating"
+          android:textOn="@string/stop_animating"/>
+
+      <LinearLayout android:orientation="horizontal"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:baselineAligned="false">
+        <com.f2prateek.progressbutton.ProgressButton
+            android:id="@+id/pin_progress_9"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            style="@style/ProgressButton.1"/>
+        <com.f2prateek.progressbutton.ProgressButton
+            android:id="@+id/pin_progress_10"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            style="@style/ProgressButton.Clickable.4"/>
+      </LinearLayout>
+
     </LinearLayout>
   </ScrollView>
 
