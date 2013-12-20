@@ -44,8 +44,10 @@
                             
                             <h3 id="introduction">Introduction</h3>
                             <p><code>ProgressButton</code> is a custom progress indicator with a tiny footprint. The default implementation provides a pin progress button as seen on the <a href="https://developer.android.com/design/building-blocks/progress.html#custom-indicators">Android design site</a>.</p>
-                            <p class="screenshot"><img src="static/sample.png" alt="Sample application screenshot."></p>
 
+                            <p class="screenshot"><img src="static/states.png" alt="States"></p>
+
+                            <p class="screenshot"><img src="static/sample.png" alt="Sample application screenshot."></p>
 
                             <h3 id="usage">Usage</h3>
                             <h4>XML</h4>
@@ -68,10 +70,21 @@
                                 <li><code>pinnedDrawable</code> : <code>Drawable</code> displayed when the button is unpinned</li>
                                 <li><code>unpinnedDrawable</code> : <code>Drawable</code> displayed when the button is pinned</li>
                                 <li><code>shadowDrawable</code> : <code>Drawable</code> that acts as the shadow of the button</li>
-                                <li><code>innerSize </code></li>
+                                <li><code>innerSize</code> : Area inside the view that should be
+                                    filled with the progressColor
+                                </li>
+                                <li><code>animating</code> : <code>boolean</code> start the button
+                                    in an animating mode
+                                </li>
+                                <li><code>animationStripWidth</code> : Width of the animation bar
+                                </li>
+                                <li><code>animationSpeed</code> : The progress with which each frame
+                                    of the animation appears to 'jump'
+                                </li>
+                                <li><code>animationDelay</code> : Delay before each animation frame.
+                                </li>
                                 <li><code>pinned</code> : Whether the button is pinned or not</li>
                             </ul>
-                            <p class="screenshot"><img src="static/states.png" alt="States"></p>
 
                             <p>Look under the <a href="https://github.com/f2prateek/progressbutton/tree/master/samples"><code>/samples</code></a> folder to see an example of how to use these attributes. The corresponding app is available on the <a href="https://play.google.com/store/apps/details?id=com.f2prateek.progressbutton.samples">Play Store</a>.</p>
                             
