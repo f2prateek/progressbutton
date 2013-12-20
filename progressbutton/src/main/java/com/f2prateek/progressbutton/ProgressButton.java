@@ -335,9 +335,11 @@ public class ProgressButton extends CompoundButton {
 
   /** Start animating the button. */
   public void startAnimating() {
-    mAnimating = true;
-    mAnimationProgress = mProgress;
-    mAnimationHandler.sendEmptyMessage(0);
+    if (!mAnimating) {
+      mAnimating = true;
+      mAnimationProgress = mProgress;
+      mAnimationHandler.sendEmptyMessage(0);
+    }
   }
 
   /** Stop animating the button. */
