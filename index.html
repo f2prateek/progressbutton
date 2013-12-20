@@ -154,7 +154,7 @@ limitations under the License.</pre>
                     });
                     
                     // Look up the latest version of the library.
-                    $.fn.artifactVersion('com.f2prateek', 'progressbutton', function(version, url) {
+                    $.fn.artifactVersion('com.f2prateek.progressbutton', 'progressbutton', function(version, url) {
                         $('.version').text(version);
                         $('.version-tag').text('v' + version);
                         $('.version-href').attr('href', url);
