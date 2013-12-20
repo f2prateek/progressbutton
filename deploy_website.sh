@@ -3,7 +3,7 @@
 set -ex
 
 REPO="git@github.com:f2prateek/progressbutton.git"
-GROUP_ID="com.f2prateek"
+GROUP_ID="com.f2prateek.progressbutton"
 ARTIFACT_ID="progressbutton"
 
 DIR=temp-clone
