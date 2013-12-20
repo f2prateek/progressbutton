@@ -164,7 +164,7 @@ public class MainActivity extends Activity {
       button.setContentDescription(getString(
           button.isChecked() ? R.string.content_desc_pinned_not_downloaded
               : R.string.content_desc_unpinned_not_downloaded));
-    } else if (progress >= 100) {
+    } else if (progress >= button.getMax()) {
       button.setContentDescription(getString(
           button.isChecked() ? R.string.content_desc_pinned_downloaded
               : R.string.content_desc_unpinned_downloaded));
