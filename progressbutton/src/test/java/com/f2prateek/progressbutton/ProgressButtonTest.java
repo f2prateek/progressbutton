@@ -155,4 +155,31 @@ public class ProgressButtonTest {
     }
   }
 
+  @Test
+  public void testSettingProgressAndMax() throws Exception {
+    button.setMax(10);
+    button.setProgressAndMax(20, 50);
+    button.setProgressAndMax(2, 5);
+  }
+
+  @Test
+  public void testSettingInvalidProgressAndMax() throws Exception {
+    try {
+      button.setProgressAndMax(10, 5);
+      fail("Setting progress>max should throw");
+    } catch (IllegalArgumentException e) {
+    }
+
+    try {
+      button.setProgressAndMax(0, 0);
+      fail("Setting max=0 should throw");
+    } catch (IllegalArgumentException e) {
+    }
+
+    try {
+      button.setProgressAndMax(-1, 10);
+      fail("Setting progress<0 should throw");
+    } catch (IllegalArgumentException e) {
+    }
+  }
 }
