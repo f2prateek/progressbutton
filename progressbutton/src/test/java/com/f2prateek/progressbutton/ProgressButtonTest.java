@@ -158,8 +158,14 @@ public class ProgressButtonTest {
   @Test
   public void testSettingProgressAndMax() throws Exception {
     button.setMax(10);
+
     button.setProgressAndMax(20, 50);
+    assertThat(button.getProgress()).isEqualTo(20);
+    assertThat(button.getMax()).isEqualTo(50);
+
     button.setProgressAndMax(2, 5);
+    assertThat(button.getProgress()).isEqualTo(2);
+    assertThat(button.getMax()).isEqualTo(5);
   }
 
   @Test
