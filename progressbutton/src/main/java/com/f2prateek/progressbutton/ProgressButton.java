@@ -217,6 +217,27 @@ public class ProgressButton extends CompoundButton {
     invalidate();
   }
 
+  /**
+   * Sets the current progress and maximum progress value, both of which
+   * must be valid values.
+   *
+   * @see #setMax(int)
+   * @see #setProgress(int)
+   */
+  public void setProgressAndMax(int progress, int max) {
+    if (progress > max || progress < 0) {
+      throw new IllegalArgumentException(
+          String.format("Progress (%d) must be between %d and %d", progress, 0, max));
+    } else if (max <= 0) {
+      throw new IllegalArgumentException(
+          String.format("Max (%d) must be > 0", max));
+    }
+
+    mProgress = progress;
+    mMax = max;
+    invalidate();
+  }
+
   /** Get the color used to display the progress level. */
   public int getProgressColor() {
     return mProgressPaint.getColor();
