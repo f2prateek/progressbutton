@@ -12,7 +12,7 @@
   <groupId>com.f2prateek.progressbutton</groupId>
   <artifactId>progressbutton-parent</artifactId>
   <packaging>pom</packaging>
-  <version>2.1.0</version>
+  <version>2.1.1-SNAPSHOT</version>
 
   <name>Android Progress Button (Parent)</name>
   <description>ProgressButton is a custom progress indicator with a tiny footprint.</description>
@@ -28,7 +28,7 @@
     <url>https://github.com/f2prateek/progressbutton</url>
     <connection>scm:git:git://github.com/f2prateek/progressbutton.git</connection>
     <developerConnection>scm:git:git@github.com:f2prateek/progressbutton.git</developerConnection>
-    <tag>progressbutton-parent-2.1.0</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <licenses>
