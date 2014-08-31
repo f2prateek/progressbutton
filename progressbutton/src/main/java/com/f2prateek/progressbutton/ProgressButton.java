@@ -317,6 +317,7 @@ public class ProgressButton extends CompoundButton {
    */
   public void setPinned(boolean pinned) {
     setChecked(pinned);
+    invalidate();
   }
 
   /** Returns true if the button is animating. */
