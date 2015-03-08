@@ -76,8 +76,7 @@ public class MainActivity extends Activity {
 
     CompoundButton.OnCheckedChangeListener checkedChangeListener =
         new CompoundButton.OnCheckedChangeListener() {
-          @Override
-          public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+          @Override public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
             updatePinProgressContentDescription((ProgressButton) compoundButton);
           }
         };
@@ -93,8 +92,7 @@ public class MainActivity extends Activity {
 
     SeekBar progressSeekBar = (SeekBar) findViewById(R.id.progress_seek_bar);
     progressSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-      @Override
-      public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+      @Override public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         updateProgressButton(progressButton1, seekBar);
         updateProgressButton(progressButton2, seekBar);
         updateProgressButton(progressButton3, seekBar);
@@ -107,12 +105,10 @@ public class MainActivity extends Activity {
         updateProgressButton(progressButton10, seekBar);
       }
 
-      @Override
-      public void onStartTrackingTouch(SeekBar seekBar) {
+      @Override public void onStartTrackingTouch(SeekBar seekBar) {
       }
 
-      @Override
-      public void onStopTrackingTouch(SeekBar seekBar) {
+      @Override public void onStopTrackingTouch(SeekBar seekBar) {
       }
     });
 

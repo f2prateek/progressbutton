@@ -90,8 +90,7 @@ public class ProgressButton extends CompoundButton {
      * This is the code that will increment the progress variable
      * and so spin the wheel
      */
-    @Override
-    public void handleMessage(Message msg) {
+    @Override public void handleMessage(Message msg) {
       if (mAnimating) {
         invalidate();
         mAnimationProgress += mAnimationSpeed;
@@ -229,8 +228,7 @@ public class ProgressButton extends CompoundButton {
       throw new IllegalArgumentException(
           String.format("Progress (%d) must be between %d and %d", progress, 0, max));
     } else if (max <= 0) {
-      throw new IllegalArgumentException(
-          String.format("Max (%d) must be > 0", max));
+      throw new IllegalArgumentException(String.format("Max (%d) must be > 0", max));
     }
 
     mProgress = progress;
@@ -372,14 +370,12 @@ public class ProgressButton extends CompoundButton {
     invalidate();
   }
 
-  @Override
-  protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+  @Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
     setMeasuredDimension(resolveSize(mDrawableSize, widthMeasureSpec),
         resolveSize(mDrawableSize, heightMeasureSpec));
   }
 
-  @Override
-  protected void drawableStateChanged() {
+  @Override protected void drawableStateChanged() {
     super.drawableStateChanged();
     if (mPinnedDrawable.isStateful()) {
       mPinnedDrawable.setState(getDrawableState());
@@ -392,8 +388,7 @@ public class ProgressButton extends CompoundButton {
     }
   }
 
-  @Override
-  protected void onDraw(Canvas canvas) {
+  @Override protected void onDraw(Canvas canvas) {
     super.onDraw(canvas);
 
     mTempRect.set(0, 0, mDrawableSize, mDrawableSize);
@@ -418,8 +413,7 @@ public class ProgressButton extends CompoundButton {
     mShadowDrawable.draw(canvas);
   }
 
-  @Override
-  public Parcelable onSaveInstanceState() {
+  @Override public Parcelable onSaveInstanceState() {
     Parcelable superState = super.onSaveInstanceState();
     if (isSaveEnabled()) {
       SavedState ss = new SavedState(superState);
@@ -430,8 +424,7 @@ public class ProgressButton extends CompoundButton {
     return superState;
   }
 
-  @Override
-  public void onRestoreInstanceState(Parcelable state) {
+  @Override public void onRestoreInstanceState(Parcelable state) {
     if (!(state instanceof SavedState)) {
       super.onRestoreInstanceState(state);
       return;
@@ -447,13 +440,11 @@ public class ProgressButton extends CompoundButton {
   /** A {@link android.os.Parcelable} representing the {@link ProgressButton}'s state. */
   public static class SavedState extends BaseSavedState {
     public static final Creator<SavedState> CREATOR = new Creator<SavedState>() {
-      @Override
-      public SavedState createFromParcel(Parcel parcel) {
+      @Override public SavedState createFromParcel(Parcel parcel) {
         return new SavedState(parcel);
       }
 
-      @Override
-      public SavedState[] newArray(int size) {
+      @Override public SavedState[] newArray(int size) {
         return new SavedState[size];
       }
     };
@@ -470,8 +461,7 @@ public class ProgressButton extends CompoundButton {
       mMax = in.readInt();
     }
 
-    @Override
-    public void writeToParcel(Parcel out, int flags) {
+    @Override public void writeToParcel(Parcel out, int flags) {
       super.writeToParcel(out, flags);
       out.writeInt(mProgress);
       out.writeInt(mMax);
